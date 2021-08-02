@@ -11,7 +11,7 @@ With this app, one will be able to reduce food waste as well as track food purch
 ![Shopping Cart](./resources/shopping_cart.JPG)
 ***
 ## **Domain Model**
-![Domain Model](./resources/domainModel.png)
+![Domain Model](./resources/domainModel.pdf)
 ***
 ## **Local Storage**
 ![Local Storage](./resources/local_storage.JPG)
