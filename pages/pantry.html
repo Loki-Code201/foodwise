@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodWise</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&family=Ubuntu&display=swap" rel="stylesheet">
+    <script defer src="../js/app.js"></script>
+    <script defer src="../js/pantry.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>foodWise</h1>
+      <nav>
+        <ul id="">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="pantry.html">Pantry</a></li>
+            <li><a href="shopping-list.html">Shopping List</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+      </nav>
+    </header>
+    <main>
+        <h2 class="">Pantry</h2>
+        <form id="addFood">
+            <fieldset>
+                <legend>Add Food</legend>
+
+                <label for="food">Name</label>
+                <input type="text" name="food" value="apple">
+
+                <label for="quantity">Quantity</label>
+                <input type="number" name="quantity" value="1">
+
+                <label for="expiration">Expiration Date</label>
+                <input type="date" name="expiration" value="2021-08-01">
+
+                <label for="category">Category</label>
+                <select name="category">
+                    <option value="fruit">fruit</option>
+                    <option value="vegetable">vegetable</option>
+                    <option value="meat">meat</option>
+                    <option value="fish">fish</option>
+                    <option value="grains">grains</option>
+                    <option value="beverage">beverage</option>
+                    <option value="snacks">snacks</option>
+                </select>
+
+                <button type="submit">Add Food</button>
+            </fieldset>
+        </form>
+        <table id="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Expiration Date</th>
+                    <th>Category</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+
+            </tbody>
+
+        </table>
+
+    </main>
+    <footer>
+
+    </footer>
+</body>
+
+</html>
