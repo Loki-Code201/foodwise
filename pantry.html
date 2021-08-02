@@ -26,7 +26,7 @@
                 <input type="number" name="quantity" value="1">
 
                 <label for="expiration">Expiration Date</label>
-                <input type="date" name="expiration" value="">
+                <input type="date" name="expiration" value="2021-08-01">
 
                 <label for="category">Category</label>
                 <select name="category">
@@ -42,7 +42,19 @@
                 <button type="submit">Add Food</button>
             </fieldset>
         </form>
-        <table>
+        <table id="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Expiration Date</th>
+                    <th>Category</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+
+            </tbody>
 
         </table>
 
