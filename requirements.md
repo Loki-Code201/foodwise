@@ -1,7 +1,7 @@
 # Software Requirements
 ## Vision
 **What is the vision of this product?**
-The vision of this product is to create an app that is able to be used by a diversity of customers, that will address issues of potential food waste as well as reminders of when to buy new amounts of a grocery item in your house.
+The vision of this product is to create an app that is able to be used by a diversity of customers> It will address issues of potential food waste as well as reminders of when to buy new amounts of a grocery item in your house.
 
 **What pain point does this project solve?**
 This project solves the pain point of addressing potential food waste (and associated money waste) that comes with not having a clear idea of what food you have, and when it is set to expire. 
