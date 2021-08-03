@@ -43,10 +43,10 @@ function setLocalStorage(array, name) {
 function renderTableRow(values) {
   const tbodyElem = document.getElementById("tbody");
 
-  makeElement("tr", tbodyElem);
-  makeElement("th", tbodyElem, "placeholder");
+  let trElem = makeElement("tr", tbodyElem);
+  makeElement("th", trElem, "placeholder");
   for (let i = 0; i < values.length; i++) {
-    makeElement("td", tbodyElem, `${values[i]}`);
+    makeElement("td", trElem, `${values[i]}`);
   }
 }
 
