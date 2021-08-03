@@ -2,7 +2,7 @@
 
 function PantryItem(name, quantity, expiration, category) {
   this.name = name;
-  this.qauntity = quantity;
+  this.quantity = quantity;
   this.expiration = expiration;
   this.category = category;
 }
@@ -22,6 +22,23 @@ function makeElement(tagName, parent, textContent, attributes) {
   return element; // returns the created element
 }
 
+////////////// local storage functions //////////////////
+
+function getLocalStorage(name) {
+  const storageData = localStorage.getItem(name);
+  if (storageData) {
+    const parsedArray = JSON.parse(storageData);
+
+    return parsedArray;
+  }
+}
+
+function setLocalStorage(array, name) {
+  const stringifiedArray = JSON.stringify(array);
+  localStorage.setItem(name, stringifiedArray);
+}
+
+////////////////// rendering functions
 // table stuff
 function renderTableRow(values) {
   const tbodyElem = document.getElementById("tbody");
@@ -49,40 +66,21 @@ function formCb(event) {
   const values = [];
 
   // iterates through the key and value of the form inputs
-  for (let pair of formData.entries()) {
+  for (const pair of formData.entries()) {
     values.push(pair[1]);
   }
 
-  let pantryItem = new PantryItem(...values);
+  const pantryItem = new PantryItem(...values);
   // add to local storage instead and then render from local storage
   renderTable(values);
-  console.log(pantryItem);
 
   setLocalStorage(pantryItem, "pantry");
-  let storageData = getLocalStorage("pantry");
+  const storageData = getLocalStorage("pantry");
 
-  console.log(localStorage);
-  console.log(test);
+  const rehydratedValues = Object.values(storageData);
+  const rehydratedObj = new PantryItem(...rehydratedValues);
+  console.log(rehydratedObj);
 }
 
 const form = document.getElementById("addFood");
 form.addEventListener("submit", formCb);
-
-function getLocalStorage(name) {
-  const storageData = localStorage.getItem(name);
-  if (storageData) {
-    const parsedArray = JSON.parse(storageData);
-
-    return parsedArray;
-  }
-}
-
-function setLocalStorage(array, name) {
-  const stringifiedArray = JSON.stringify(array);
-  localStorage.setItem(name, stringifiedArray);
-}
-
-// resetButton.onclick = function () {
-//   window.localStorage.clear();
-//   window.location.reload();
-// };
