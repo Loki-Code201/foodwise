@@ -1,32 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FoodWise</title>
+    <title>foodWise</title>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&family=Ubuntu&display=swap" rel="stylesheet">
+    <script defer src="../js/shoppinglist.js"></script>
   </head>
+
   <body>
     <header>
-      <a href="../index.html"><h1>foodWise</h1></a>
-        <ul id="nav">
-          <li class="hover-underline-animation"><a href="../index.html">Home</a></li>
-          <li class="hover-underline-animation"><a href="pantry.html">Pantry</a></li>
-          <li class="hover-underline-animation"><a href="shopping-list.html">Shopping List</a></li>
-          <li class="hover-underline-animation"><a href="about.html">About</a></li>
-        </ul>
+      <a href="index.html">
+        <h1>foodWise</h1>
+      </a>
+      <ul id="nav">
+        <li class="hover-underline-animation"><a href="../index.html"><img class="icon" src="../images/icons/home-smile-line.png" alt="home">Home</a></li>
+        <li class="hover-underline-animation"><a href="pantry.html"><img class="icon" src="../images/icons/bar-chart-grouped-fill.png" alt="pantry">Pantry</a></li>
+        <li class="hover-underline-animation"><a href="shopping-list.html"><img class="icon" src="../images/icons/checkbox-multiple-line.png" alt="shopping list">Shopping List</a></li>
+        <li class="hover-underline-animation"><a href="about.html"><img class="icon" src="../images/icons/group-line.png" alt="About">About</a></li>
+      </ul>
     </header>
     <main>
       <h2 class="">Shopping List</h2>
-      <section>
+      <form id="addItem">
+        <fieldset>
+            <legend>
+                <h3>Add Food to Shopping List</h3>
+            </legend>
+
+            <label for="food">Item Name</label>
+            <input id="name" type="text" name="food" value="orange"> 
+
+            <label for="quantity">Quantity</label>
+            <input id="quantity" type="number" name="quantity" value="1">
+
+            <label for="category">Category</label>
+            <select name="category">
+                <option value="fruit">Fruits</option>
+                <option value="vegetable">Vegetables</option>
+                <option value="meat">Meats</option>
+                <option value="fish">Seafood</option>
+                <option value="grains">Grains</option>
+                <option value="deli">Deli</option>
+                <option value="pasta">Pasta</option>
+                <option value="cannedgoods">Canned Goods</option>
+                <option value="dairy">Dairy</option>
+                <option value="beverage">Beverages</option>
+                <option value="snacks">Snacks</option>
+            </select>
+
+            <button type="submit">Add</button>
+        </fieldset>
+    </form>
+    <table id="table">
+      <thead>
+          <tr>
+              <th></th>
+              <th>Item Name</th>
+              <th>Quantity</th>
+              <th>Category</th>
+          </tr>
+      </thead>
+      <tbody id="tbody">
+      </tbody>
+
+    </table>
+      <section id="emptycart">
         <article>
-          <p class="">
+          <p>
             Your shopping list is currently empty.
           </p>
         </article>
