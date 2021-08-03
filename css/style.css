@@ -20,7 +20,7 @@ h2 {
 }
 
 h3 {
-  margin: 10px 5px;
+  margin: 20px 5px -5px 5px;
   font-size: 20px;
   color: #328453;
   font-family: "Ubuntu", sans-serif;
@@ -29,13 +29,13 @@ h3 {
 a {
   color: #328453;
   text-decoration: none;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 a:hover {
   color: #631604;
   text-decoration: none;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 h1:hover {
@@ -63,7 +63,7 @@ li {
   text-transform: uppercase;
   margin-left: 50px;
   font-family: "Comfortaa", sans-serif;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .hover-underline-animation {
@@ -82,7 +82,7 @@ li {
   left: 0;
   background-color: #631604;
   transform-origin: bottom right;
-  transition: transform 0.4s ease-out;
+  transition: transform 0.2s ease-out;
 }
 
 .hover-underline-animation:hover:after {
@@ -258,7 +258,11 @@ tr:hover {
 }
 
 .bio p {
-  padding: 0px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 175px;
+  font-size: .85em;
+  margin-left: 6px;
 }
 
 /* hr {
