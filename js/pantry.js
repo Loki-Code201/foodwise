@@ -34,26 +34,45 @@ function getLocalStorage(name) {
 }
 
 function setLocalStorage(array, name) {
+  console.log(array);
+  console.log(name);
   const stringifiedArray = JSON.stringify(array);
   localStorage.setItem(name, stringifiedArray);
 }
 
 ////////////////// rendering functions
 // table stuff
-function renderTableRow(values) {
-  const tbodyElem = document.getElementById("tbody");
+// values parameter is an array
+function renderTableRow(values, table) {
+  let tbodyElem = document.getElementsByTagName("tbody")[0];
 
-  makeElement("tr", tbodyElem);
-  makeElement("th", tbodyElem, "placeholder");
+  const newTbody = makeElement("tbody", table);
+
+  // tbodyElem.innerHTML = "";
+
+  // tableElem.replaceChild(newTbody, tbodyElem);
+  makeElement("tr", newTbody);
+  makeElement("th", newTbody, "placeholder");
   for (let i = 0; i < values.length; i++) {
-    makeElement("td", tbodyElem, `${values[i]}`);
+    makeElement("td", newTbody, `${values[i]}`);
   }
 }
 
+// values parameter is an array
 function renderTable(values) {
   const tableElem = document.getElementById("table");
   if (tableElem) {
-    renderTableRow(values);
+    renderTableRow(values, tableElem);
+  }
+}
+
+function renderFromStorage(storageData) {
+  for (let obj of storageData) {
+    console.log(obj);
+    const rehydratedValues = Object.values(obj);
+    console.log(rehydratedValues);
+    // const rehydratedObj = new PantryItem(...rehydratedValues);
+    renderTable(rehydratedValues); // TODO: change to the values from rehydratedObj
   }
 }
 
@@ -69,18 +88,32 @@ function formCb(event) {
   for (const pair of formData.entries()) {
     values.push(pair[1]);
   }
-
-  const pantryItem = new PantryItem(...values);
-  // add to local storage instead and then render from local storage
-  renderTable(values);
-
-  setLocalStorage(pantryItem, "pantry");
-  const storageData = getLocalStorage("pantry");
-
-  const rehydratedValues = Object.values(storageData);
-  const rehydratedObj = new PantryItem(...rehydratedValues);
-  console.log(rehydratedObj);
+  console.log(this);
+  this.push(new PantryItem(...values)); // `this` refers to the bound `pantryObjArray` array
+  console.log(this);
+  setLocalStorage(this, "pantry");
+  renderFromStorage(getLocalStorage("pantry"));
 }
 
-const form = document.getElementById("addFood");
-form.addEventListener("submit", formCb);
+///////////////// Main ///////////////////
+function main() {
+  const form = document.getElementById("addFood");
+  const storageData = getLocalStorage("pantry");
+  if (storageData) {
+    renderFromStorage(storageData);
+  }
+
+  const pantryObjArray = []; // being put in local storage
+  form.addEventListener("submit", formCb.bind(pantryObjArray));
+
+  // add to local storage instead and then render from local storage
+  // renderTable(values);
+
+  // DEVELOPMENT purposes only
+  const resetButton = document.getElementById("resetHistory");
+  resetButton.onclick = function () {
+    window.localStorage.clear();
+    window.location.reload();
+  };
+}
+main();
