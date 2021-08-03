@@ -9,7 +9,7 @@ function PantryItem(name, quantity, expiration, category) {
 
 // attributes is an object  = {src: "", alt: ""}
 function makeElement(tagName, parent, textContent, attributes) {
-  let element = document.createElement(tagName);
+  const element = document.createElement(tagName);
   if (attributes) {
     for (const property in attributes) {
       element.setAttribute(property, attributes[property]);
@@ -33,54 +33,79 @@ function getLocalStorage(name) {
   }
 }
 
-function setLocalStorage(array, name) {
+function setLocalStorage(name, array) {
   const stringifiedArray = JSON.stringify(array);
   localStorage.setItem(name, stringifiedArray);
 }
 
 ////////////////// rendering functions
 // table stuff
+// values parameter is an array
 function renderTableRow(values) {
   const tbodyElem = document.getElementById("tbody");
+  tbodyElem.innerHTML = "";
 
-  let trElem = makeElement("tr", tbodyElem);
-  makeElement("th", trElem, "placeholder");
-  for (let i = 0; i < values.length; i++) {
-    makeElement("td", trElem, `${values[i]}`);
+  for (const array of values) {
+    makeElement("tr", tbodyElem);
+    makeElement("th", tbodyElem, "placeholder");
+
+    for (const value of array) {
+      makeElement("td", tbodyElem, value);
+    }
   }
 }
 
-function renderTable(values) {
-  const tableElem = document.getElementById("table");
-  if (tableElem) {
-    renderTableRow(values);
+function renderFromStorage(storageData) {
+  const rehydratedValues = [];
+  for (const obj of storageData) {
+    rehydratedValues.push(Object.values(obj));
   }
+  renderTableRow(rehydratedValues); // TODO: change to the values from rehydratedObj
 }
 
 //////////////// Listeners ////////////////////////
-
 function formCb(event) {
   event.preventDefault();
   // need to append to table elem
   const formData = new FormData(event.target);
   const values = [];
+  const currentLocalStorage = getLocalStorage("pantry");
 
   // iterates through the key and value of the form inputs
   for (const pair of formData.entries()) {
     values.push(pair[1]);
   }
 
-  const pantryItem = new PantryItem(...values);
-  // add to local storage instead and then render from local storage
-  renderTable(values);
+  // gets what is in the current local storage array of objects (if any), and add an object into that array and then put that array back into local storage
+  if (currentLocalStorage) {
+    currentLocalStorage.push(new PantryItem(...values));
+    setLocalStorage("pantry", currentLocalStorage);
+  } else {
+    // no local storage yet so set it up
+    this.push(new PantryItem(...values)); // `this` refers to the bound `pantryObjArray` array
 
-  setLocalStorage(pantryItem, "pantry");
-  const storageData = getLocalStorage("pantry");
+    setLocalStorage("pantry", this);
+  }
 
-  const rehydratedValues = Object.values(storageData);
-  const rehydratedObj = new PantryItem(...rehydratedValues);
-  console.log(rehydratedObj);
+  renderFromStorage(getLocalStorage("pantry")); //currently not clearing clearing the current table
 }
 
-const form = document.getElementById("addFood");
-form.addEventListener("submit", formCb);
+///////////////// Main ///////////////////
+function main() {
+  const form = document.getElementById("addFood");
+  const storageData = getLocalStorage("pantry");
+  if (storageData) {
+    renderFromStorage(storageData);
+  }
+
+  const pantryObjArray = []; // being put in local storage
+  form.addEventListener("submit", formCb.bind(pantryObjArray));
+
+  // DEVELOPMENT purposes only
+  const resetButton = document.getElementById("resetHistory");
+  resetButton.onclick = function () {
+    window.localStorage.clear();
+    window.location.reload();
+  };
+}
+main();
