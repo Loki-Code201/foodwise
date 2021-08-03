@@ -1,0 +1,144 @@
+body {
+  font-family: 'Ubuntu', sans-serif;
+  width: 100%;
+}
+
+h1 {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 2em;
+  color: green;
+}
+
+h2 {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+a {
+  color: green;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+header, footer {
+  height: 100px;
+  width: 75%;
+  max-width: 960px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0px auto;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+li {
+  display: inline;
+  text-transform: uppercase;
+  margin-left: 50px;
+  font-family: 'Comfortaa', sans-serif;
+}
+
+main {
+  width: 75%;
+  align-items: center;
+  margin: 0px auto;
+  max-width: 960px;
+}
+
+section {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
+
+#landingImage {
+  display: flex;
+}
+
+#landingImage img {
+  width: 100%;
+  /* opacity: 50%; */
+  border-radius: 4px;
+}
+
+button {
+  margin: 20px;
+  width: 200px;
+  height: 60px;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  font-family: 'Ubuntu', sans-serif;
+  border: none;
+  background-color: green;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: black;
+}
+
+p {
+  margin: 20px;
+  line-height: 1.4;
+}
+
+h3 {
+  margin-top: 10px;
+  font-size: 20px;
+  color: green;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.bwtocolor {
+  width: 200px;
+  border-radius: 50%;
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+  transition: all 0.3s ease-in-out;
+}
+
+.bwtocolor:hover {
+	-webkit-filter: grayscale(0);
+	filter: grayscale(0);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+#bios {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.bio {
+  width: 20%;  
+  display: inline-block;
+  margin: 10px;
+  height: 100%;
+  padding: 15px;
+  /* flex-wrap: nowrap; */
+}
+
+hr {
+  background-color: green;
+  height: 2px;
+  max-width: 75%;
+}
+
+footer {
+  height: 100px;
+  max-width: 75%; 
+}
+
