@@ -20,7 +20,7 @@ h2 {
 }
 
 h3 {
-  margin: 10px 5px;
+  margin: 20px 5px -5px 5px;
   font-size: 20px;
   color: #328453;
   font-family: 'Ubuntu', sans-serif;
@@ -255,7 +255,11 @@ td:hover {
 }
 
 .bio p {
-  padding: 0px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 175px;
+  font-size: .85em;
+  margin-left: 6px;
 }
 
 /* hr {
