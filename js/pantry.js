@@ -1,5 +1,12 @@
 /////////////// Utility functions ////////////////////
 
+function PantryItem(name, quantity, expiration, category) {
+  this.name = name;
+  this.quantity = quantity;
+  this.expiration = expiration;
+  this.category = category;
+}
+
 // attributes is an object  = {src: "", alt: ""}
 function makeElement(tagName, parent, textContent, attributes) {
   let element = document.createElement(tagName);
@@ -15,12 +22,29 @@ function makeElement(tagName, parent, textContent, attributes) {
   return element; // returns the created element
 }
 
+////////////// local storage functions //////////////////
+
+function getLocalStorage(name) {
+  const storageData = localStorage.getItem(name);
+  if (storageData) {
+    const parsedArray = JSON.parse(storageData);
+
+    return parsedArray;
+  }
+}
+
+function setLocalStorage(array, name) {
+  const stringifiedArray = JSON.stringify(array);
+  localStorage.setItem(name, stringifiedArray);
+}
+
+////////////////// rendering functions
 // table stuff
 function renderTableRow(values) {
   const tbodyElem = document.getElementById("tbody");
 
   makeElement("tr", tbodyElem);
-  makeElement("th", tbodyElem, 'placeholder');
+  makeElement("th", tbodyElem, "placeholder");
   for (let i = 0; i < values.length; i++) {
     makeElement("td", tbodyElem, `${values[i]}`);
   }
@@ -42,10 +66,20 @@ function formCb(event) {
   const values = [];
 
   // iterates through the key and value of the form inputs
-  for (let pair of formData.entries()) {
+  for (const pair of formData.entries()) {
     values.push(pair[1]);
   }
+
+  const pantryItem = new PantryItem(...values);
+  // add to local storage instead and then render from local storage
   renderTable(values);
+
+  setLocalStorage(pantryItem, "pantry");
+  const storageData = getLocalStorage("pantry");
+
+  const rehydratedValues = Object.values(storageData);
+  const rehydratedObj = new PantryItem(...rehydratedValues);
+  console.log(rehydratedObj);
 }
 
 const form = document.getElementById("addFood");
