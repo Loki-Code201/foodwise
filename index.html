@@ -9,33 +9,29 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&family=Ubuntu&display=swap" rel="stylesheet">
   </head>
   <body>
     <header>
-      <h1>foodWise</h1>
-      <nav>
-        <ul id="">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="./pages/pantry.html">Pantry</a></li>
-          <li><a href="./pages/shopping-list.html">Shopping List</a></li>
-          <li><a href="./pages/about.html">About</a></li>
+      <a href="index.html"><h1>foodWise</h1></a>
+        <ul id="nav">
+          <li class="hover-underline-animation"><a href="index.html">Home</a></li>
+          <li class="hover-underline-animation"><a href="./pages/pantry.html">Pantry</a></li>
+          <li class="hover-underline-animation"><a href="./pages/shopping-list.html">Shopping List</a></li>
+          <li class="hover-underline-animation"><a href="./pages/about.html">About</a></li>
         </ul>
-      </nav>
     </header>
     <main>
-      <hr>
       <section id="landingImage">
-        <img src="./images/produceImage.jpg"alt="Grocery Image">
-        <article>
-          <h2 class=""></h2>
-          <h2 class=""></h2>
+        <article id="welcome">
+          <h2 class="">Welcome to foodWise.</h2>
+          <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis exercitationem sapiente ab ducimus commodi dolore perspiciatis fugit corrupti blanditiis maxime?</h2>
+          <a href="./pages/pantry.html"><button type="submit">Get Started</button></a>
         </article>
       </section>
 
       <section>
-          <a href="./pages/pantry.html"><button type="submit">Get Started</button></a>
         <article>
           <p class="">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
@@ -86,10 +82,10 @@
           <p class=""><a href=""></a></p>
         </div>
       </section>
-      <hr>
     </main>
     <footer>
-      <p>&#169;2021 Code Fellows, Inc. | Team Loki</p>
+      <p>&#169;2021 Code Fellows, Inc. | <a href="./pages/about.html">Team Loki</a>
+      </p>
     </footer>
   </body>
 </html>
