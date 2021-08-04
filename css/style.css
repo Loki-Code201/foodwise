@@ -127,7 +127,8 @@ ul {
 }
 
 #nav .icon:hover {
-  filter: invert(10%) sepia(57%) saturate(3979%) hue-rotate(3deg) brightness(96%) contrast(98%);
+  filter: invert(10%) sepia(57%) saturate(3979%) hue-rotate(3deg)
+    brightness(96%) contrast(98%);
   transition: all 0.3s ease-in-out;
 }
 
@@ -163,7 +164,8 @@ section {
   /* border: 1px solid lightgray; */
 }
 
-#welcome, #story {
+#welcome,
+#story {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -371,7 +373,8 @@ thead > tr:hover {
   padding: 30px;
 }
 
-.describe h3, #mailingList h3 {
+.describe h3,
+#mailingList h3 {
   color: black;
   font-size: 1.4em;
   margin: 0px;
@@ -415,7 +418,8 @@ thead > tr:hover {
   display: flex;
 }
 
-#addFood fieldset, #addItem fieldset {
+#addFood fieldset,
+#addItem fieldset {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -425,21 +429,27 @@ thead > tr:hover {
   width: 100%;
 }
 
-#addFood input, #addFood select, #addItem input, #addItem select {
+#addFood input,
+#addFood select,
+#addItem input,
+#addItem select {
   height: 25px;
   margin: 0px 15px 0px 5px;
   padding-left: 8px;
 }
 
-#addFood #name, #addItem #name {
+#addFood #name,
+#addItem #name {
   width: 120px;
 }
 
-#addFood #quantity, #addItem #quantity {
+#addFood #quantity,
+#addItem #quantity {
   width: 35px;
 }
 
-#addFood button, #addItem button {
+#addFood button,
+#addItem button {
   margin: 30px 0px;
   width: 80px;
   height: 40px;
@@ -463,6 +473,7 @@ tr,
 td {
   padding: 10px 30px;
   text-align: center;
+  text-transform: capitalize;
 }
 
 tr:hover {
@@ -595,7 +606,7 @@ footer img {
   width: 250px;
   height: 35px;
   font-size: 1.2em;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   border: none;
   border-bottom: 2px solid #328453;
   background-color: #f2f2f2;
