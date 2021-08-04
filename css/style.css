@@ -60,7 +60,7 @@ ul {
   flex-wrap: wrap;
 }
 
-li {
+#nav li {
   display: inline;
   text-transform: uppercase;
   margin-left: 30px;
@@ -213,7 +213,7 @@ p {
   border: 1px solid lightgray;
 }
 
-#pantryForm, #shoppingList {
+#pantryForm, #listForm {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -235,7 +235,7 @@ p {
   margin-top: 20px;
 }
 
-#pantryForm, #shoppingList legend {
+#pantryForm, #listForm legend {
   text-align: left;
   margin-left: 10px;
 }
@@ -372,7 +372,7 @@ tr:hover {
 thead > tr:hover {
   background-color: #f2f2f2;
 }
-/* #shoppingList {
+/* #listForm {
   background-image: url(../images/carts.jpg);
   height: 1300px;
 } */
@@ -494,3 +494,35 @@ footer img {
   height: 35px;
   width: 120px;
 }
+
+#shopping-list {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0px auto;
+  text-align: left;
+}
+
+#shopping-list li {
+  cursor: pointer;
+  /* position: relative; */
+  padding: 12px 8px 12px 40px;
+  background: white;
+  font-size: 16px;
+  transition: 0.2s;
+  /* -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; */
+  border-bottom: solid lightblue .5px;
+}
+
+/* #shopping-list li:nth-child(odd) {
+  background: #f9f9f9;
+} */
+
+#shopping-list li:hover {
+  background: #ddd;
+}
+
+
