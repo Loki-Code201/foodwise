@@ -35,7 +35,7 @@ a {
 }
 
 a:hover {
-  color: black;
+  color: #631604;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
 }
@@ -63,9 +63,10 @@ ul {
 li {
   display: inline;
   text-transform: uppercase;
-  margin-left: 50px;
+  margin-left: 30px;
   font-family: "Comfortaa", sans-serif;
   transition: all 0.3s ease-in-out;
+  line-height: 1.4em;
 }
 
 .hover-underline-animation {
@@ -100,6 +101,12 @@ li {
 #nav .icon {
   margin: -5px 3px;
   filter: none;
+  transition: all 0.3s ease-in-out;
+}
+
+#nav .icon:hover {
+  filter: invert(10%) sepia(57%) saturate(3979%) hue-rotate(3deg) brightness(96%) contrast(98%);
+  transition: all 0.3s ease-in-out;
 }
 
 main {
@@ -122,23 +129,23 @@ section {
 #landingImage {
   display: flex;
   background-image: url(../images/produce-table.jpg);
-  /* width: 1000px; */
   height: 928px;
   justify-content: space-evenly;
   align-items: center;
   border-radius: 4px;
+  border: 1px solid lightgray;
 }
 
-#welcome {
+#welcome, #story {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   background-color: white;
-  opacity: 85%;
+  opacity: 90%;
   width: 60%;
   max-width: 640px;
   height: 50%;
-  max-height: 360px;
+  max-height: 380px;
   vertical-align: middle;
   border-radius: 4px;
   box-shadow: 0px 0px 5px black;
@@ -184,6 +191,74 @@ p {
   line-height: 1.4;
 }
 
+#cartsImage {
+  display: flex;
+  background-image: url(../images/carts2.jpg);
+  height: 365px;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 4px;
+  margin-bottom: 30px;
+  border: 1px solid lightgray;
+}
+
+#pantryImage {
+  display: flex;
+  background-image: url(../images/pantry.jpg);
+  height: 365px;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 4px;
+  margin-bottom: 30px;
+  border: 1px solid lightgray;
+}
+
+#pantryForm, #shoppingList {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: white;
+  opacity: 95%;
+  width: 100%;
+  max-width: 800px;
+  height: 50%;
+  max-height: 380px;
+  vertical-align: middle;
+  border-radius: 4px;
+  box-shadow: 0px 0px 5px black;
+  padding: 40px;
+}
+
+.reset {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#pantryForm, #shoppingList legend {
+  text-align: left;
+  margin-left: 10px;
+}
+
+#pastaImage {
+  display: flex;
+  background-image: url(../images/pasta5.jpg);
+  height: 700px;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 4px;
+  border: 1px solid lightgray;
+}
+
+#pastaImage h2 {
+  margin: 10px 0px;
+}
+
+#pastaImage p {
+  margin: 10px;
+  font-size: 1.2em;
+}
+
 .describe {
   display: flex;
   justify-content: center;
@@ -194,7 +269,7 @@ p {
   padding: 30px;
 }
 
-.describe h3 {
+.describe h3, #mailingList h3 {
   color: black;
   font-size: 1.4em;
   margin: 0px;
@@ -213,12 +288,13 @@ p {
 }
 
 .describe:nth-child(3) {
-  margin-bottom: -30px;
+  margin-bottom: 0px;
 }
 
 #reviews {
   display: flex;
   justify-content: space-evenly;
+  margin: 30px 0px;
 }
 
 .review {
@@ -234,11 +310,11 @@ p {
   width: 20px;
 }
 
-form {
+#addFood {
   display: flex;
 }
 
-fieldset {
+#addFood fieldset, #addItem fieldset {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -248,22 +324,21 @@ fieldset {
   width: 100%;
 }
 
-input,
-select {
+#addFood input, #addFood select, #addItem input, #addItem select {
   height: 25px;
   margin: 0px 15px 0px 5px;
   padding-left: 8px;
 }
 
-#name {
+#addFood #name, #addItem #name {
   width: 120px;
 }
 
-#quantity {
+#addFood #quantity, #addItem #quantity {
   width: 35px;
 }
 
-form button {
+#addFood button, #addItem button {
   margin: 30px 0px;
   width: 80px;
   height: 40px;
@@ -297,6 +372,10 @@ tr:hover {
 thead > tr:hover {
   background-color: #f2f2f2;
 }
+/* #shoppingList {
+  background-image: url(../images/carts.jpg);
+  height: 1300px;
+} */
 
 .bwtocolor {
   width: 200px;
@@ -346,6 +425,30 @@ thead > tr:hover {
   color: #328453;
   font-family: "Ubuntu", sans-serif;
   line-height: 1.2em;
+  transition: all 0.3s ease-in-out;
+}
+
+.bio h3:hover {
+  color: #631604;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.linkedgit {
+  display: flex;
+  justify-content: center;
+}
+
+.linkedgit img {
+  margin: 0px 5px;
+  width: 30px;
+  transition: all 0.3s ease-in-out;
+}
+
+.linkedgit img:hover {
+  background-color: f2f2f2;
+  opacity: 40%;
+  transition: all 0.3s ease-in-out;
 }
 
 /* hr {
@@ -355,5 +458,39 @@ thead > tr:hover {
 } */
 
 footer {
-  justify-content: space-evenly;
+  width: 100%;
+  padding: 40px;
+  margin: 0px auto;
+  flex-direction: column;
+  justify-content: center;
+}
+
+footer p {
+  margin: 40px;
+}
+
+footer img {
+  margin: 0px 10px 0px 5px;
+}
+
+#mailingList {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#mailingList input {
+  width: 250px;
+  height: 35px;
+  font-size: 1.2em;
+  font-family: 'Ubuntu', sans-serif;
+  border: none;
+  border-bottom: 2px solid #328453;
+  background-color: #f2f2f2;
+}
+
+#mailingList button {
+  height: 35px;
+  width: 120px;
 }

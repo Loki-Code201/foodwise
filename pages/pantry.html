@@ -11,7 +11,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&family=Ubuntu&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&family=Ubuntu&display=swap"
+        rel="stylesheet">
     <script defer src="../js/app.js"></script>
     <script defer src="../js/pantry.js"></script>
 </head>
@@ -19,51 +20,58 @@
 <body>
     <header>
         <a href="../index.html">
-          <h1>foodWise</h1>
+            <h1>foodWise</h1>
         </a>
         <ul id="nav">
-          <li class="hover-underline-animation"><a href="../index.html"><img class="icon" src="../images/icons/home-smile-line.png" alt="home">Home</a></li>
-          <li class="hover-underline-animation"><a href="pantry.html"><img class="icon" src="../images/icons/bar-chart-grouped-fill.png" alt="pantry">Pantry</a></li>
-          <li class="hover-underline-animation"><a href="shopping-list.html"><img class="icon" src="../images/icons/checkbox-multiple-line.png" alt="shopping list">Shopping List</a></li>
-          <li class="hover-underline-animation"><a href="about.html"><img class="icon" src="../images/icons/group-line.png" alt="About">About</a></li>
+            <li class="hover-underline-animation"><a href="../index.html"><img class="icon"
+                        src="../images/icons/home-smile-line.png" alt="home">Home</a></li>
+            <li class="hover-underline-animation"><a href="pantry.html"><img class="icon"
+                        src="../images/icons/door-open-line.png" alt="pantry">Pantry</a></li>
+            <li class="hover-underline-animation"><a href="shopping-list.html"><img class="icon"
+                        src="../images/icons/checkbox-multiple-line.png" alt="shopping list">Shopping List</a></li>
+            <li class="hover-underline-animation"><a href="about.html"><img class="icon"
+                        src="../images/icons/group-line.png" alt="About">About</a></li>
         </ul>
-      </header>
+    </header>
     <main>
-        <button type="submit" id="resetHistory">Reset Local Storage</button>
-        <h2 class="">Pantry</h2>
-        <form id="addFood">
-            <fieldset>
-                <legend>
-                    <h3>Add Food</h3>
-                </legend>
+        <section id="pantryImage">
+            <article id="pantryForm">
+                <h2 class="">Pantry</h2>
+                <form id="addFood">
+                    <fieldset>
+                        <legend>
+                            <h3>Add Food</h3>
+                        </legend>
 
-                <label for="food">Name</label>
-                <input id="name" type="text" name="food" value="apple">
+                        <label for="food">Name</label>
+                        <input id="name" type="text" name="food" value="apple">
 
-                <label for="quantity">Quantity</label>
-                <input id="quantity" type="number" name="quantity" value="1">
+                        <label for="quantity">Quantity</label>
+                        <input id="quantity" type="number" name="quantity" value="1">
 
-                <label for="expiration">Expiration Date</label>
-                <input type="date" name="expiration" value="2021-08-01">
+                        <label for="expiration">Expiration Date</label>
+                        <input type="date" name="expiration" value="2021-08-01">
 
-                <label for="category">Category</label>
-                <select name="category">
-                    <option value="fruit">Fruits</option>
-                    <option value="vegetable">Vegetables</option>
-                    <option value="meat">Meats</option>
-                    <option value="fish">Fish</option>
-                    <option value="grains">Grains</option>
-                    <option value="deli">Deli</option>
-                    <option value="pasta">Pasta</option>
-                    <option value="cannedgoods">Canned Goods</option>
-                    <option value="dairy">Dairy</option>
-                    <option value="beverage">Beverages</option>
-                    <option value="snacks">Snacks</option>
-                </select>
+                        <label for="category">Category</label>
+                        <select name="category">
+                            <option value="fruit">Fruits</option>
+                            <option value="vegetable">Vegetables</option>
+                            <option value="meat">Meats</option>
+                            <option value="fish">Fish</option>
+                            <option value="grains">Grains</option>
+                            <option value="deli">Deli</option>
+                            <option value="pasta">Pasta</option>
+                            <option value="cannedgoods">Canned Goods</option>
+                            <option value="dairy">Dairy</option>
+                            <option value="beverage">Beverages</option>
+                            <option value="snacks">Snacks</option>
+                        </select>
 
-                <button type="submit">Add</button>
-            </fieldset>
-        </form>
+                        <button type="submit">Add</button>
+                    </fieldset>
+                </form>
+            </article>
+        </section>
         <table id="table">
             <thead>
                 <tr>
@@ -79,9 +87,25 @@
             </tbody>
 
         </table>
+        <div class="reset">
+            <button type="submit" id="resetHistory">Reset Local Storage</button>
+        </div>
     </main>
     <footer>
-        <p>&#169;2021 Code Fellows, Inc. | <a href="about.html">Team Loki</a></p>
+        <article id="mailingList">
+            <h3>Stay In Touch</h3><img class="icon" src="../images/icons/arrow-right-line.png" alt="arrow right">
+            <form>
+                <fieldset>
+                    <label>
+                        <input name="email" type="text" placeholder="email">
+                    </label>
+                    <button id="signUp" type="submit">Sign Up</button>
+                </fieldset>
+            </form>
+        </article>
+        <article>
+            <p>&#169;2021 Code Fellows, Inc. | foodWise | <a href="about.html">Team Loki</a></p>
+        </article>
     </footer>
 </body>
 
