@@ -133,7 +133,7 @@ ul {
 
 main {
   width: 100%;
-  min-height: 1330px;
+  min-height: 1320px;
   align-items: center;
   margin: 119px auto 99px auto;
   max-width: 960px;
@@ -218,10 +218,14 @@ p {
   line-height: 1.4;
 }
 
+/* #pantryBG {
+  background-image: url(../images/pantryBG.jpg); 
+} */
+
 #pantryImage {
   display: flex;
-  background-image: url(../images/pantry.jpg);
-  height: 340px;
+  background-image: url(../images/produceImage.jpg);
+  height: 400px;
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
@@ -230,8 +234,8 @@ p {
 #cartsImage {
   display: flex;
   background-image: url(../images/carts2.jpg);
-  height: 380px;
-  justify-content: space-evenly;
+  height: 400px;
+  justify-content: center;
   align-items: center;
   margin-bottom: 30px;
 }
@@ -241,21 +245,97 @@ p {
   flex-direction: column;
   justify-content: center;
   background-color: white;
-  opacity: 95%;
-  /* width: 95%; */
-  max-width: 900px;
-  /* height: 95%; */
-  max-height: 220px;
-  vertical-align: middle;
+  opacity: 90%;
+  width: 700px;
+  /* max-width: 600px; */
+  height: 250px;
+  /* max-height: 200px; */
+  align-items: center;
   border-radius: 4px;
   box-shadow: 0px 0px 5px black;
-  /* padding: 5px; */
+  padding: 20px;
 }
 
-#pantryForm, #listForm fieldset{
+#pantryForm h2, #listForm h2 {
+margin: 20px 0px 0px 0px;
+}
+
+#pantryForm fieldset, #listForm fieldset{
   display: flex;
   flex-wrap: nowrap;
-  padding: 30px;
+  padding: 10px;
+  align-items: center;
+  border: 1px solid lightgray;
+}
+
+#pantryForm legend, #listForm legend {
+  text-align: left;
+  margin-left: 10px;
+}
+
+#addFood, #addItem {
+  display: flex;
+}
+
+#addFood fieldset, #addItem fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+#addFood input, #addFood select, #addItem input, #addItem select {
+  height: 25px;
+  margin: 0px 10px 0px 3px;
+  /* padding-left: 8px; */
+}
+
+#addFood #name, #addItem #name {
+  width: 100px;
+}
+
+#addFood #quantity, #addItem #quantity {
+  width: 35px;
+}
+
+#date {
+  width: 120px;
+}
+
+#addFood button, #addItem button {
+  margin: 30px 0px;
+  width: 80px;
+  height: 35px;
+}
+
+table {
+  width: 75%;
+  margin: 0px auto;
+}
+
+th {
+  font-weight: bolder;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-position: under;
+  color: #328453;
+  padding-bottom: 10px;
+}
+
+tr, td {
+  padding: 10px 30px;
+  text-align: center;
+}
+
+tr:hover {
+  background-color: white;
+  border-radius: 4px;
+}
+
+thead > tr:hover {
+  background-color: #f2f2f2;
 }
 
 .reset {
@@ -264,26 +344,21 @@ p {
   margin-top: 20px;
 }
 
-#pantryForm, #listForm legend {
-  text-align: left;
-  margin-left: 10px;
-}
-
 #pastaImage {
   display: flex;
   background-image: url(../images/pasta5.jpg);
-  height: 700px;
+  height: 640px;
   justify-content: space-evenly;
   align-items: center;
 }
 
-#pastaImage h2 {
-  margin: 10px 0px;
+#story h2 {
+  margin: 5px 0px;
 }
 
-#pastaImage p {
+#story p {
   margin: 10px;
-  font-size: 1.2em;
+  font-size: 1.05em;
 }
 
 .describe {
@@ -334,68 +409,6 @@ p {
 .review .icon {
   margin: 0px -2px;
   width: 20px;
-}
-
-#addFood {
-  display: flex;
-}
-
-#addFood fieldset, #addItem fieldset {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 40px;
-  border: thin solid lightgray;
-  width: 100%;
-}
-
-#addFood input, #addFood select, #addItem input, #addItem select {
-  height: 25px;
-  margin: 0px 10px 0px 3px;
-  /* padding-left: 8px; */
-}
-
-#addFood #name, #addItem #name {
-  width: 120px;
-}
-
-#addFood #quantity, #addItem #quantity {
-  width: 35px;
-}
-
-#addFood button, #addItem button {
-  margin: 30px 0px;
-  width: 80px;
-  height: 40px;
-}
-
-table {
-  width: 75%;
-  margin: 0px auto;
-}
-
-th {
-  font-weight: bolder;
-  text-transform: uppercase;
-  text-decoration: underline;
-  text-underline-position: under;
-  color: #328453;
-  padding-bottom: 10px;
-}
-
-tr, td {
-  padding: 10px 30px;
-  text-align: center;
-}
-
-tr:hover {
-  background-color: white;
-  border-radius: 4px;
-}
-
-thead > tr:hover {
-  background-color: #f2f2f2;
 }
 
 .bwtocolor {
@@ -480,7 +493,6 @@ thead > tr:hover {
 
 footer {
   background-color: white;
-  /* border-left: 1px solid white; */
   position: fixed;
   height: 100px;
   width: 74%;
@@ -491,8 +503,7 @@ footer {
   margin: 0px auto;
   justify-content: center;
   padding-top: 20px;
-  border-left: 1px solid #98c1a9;
-  border-right: 1px solid #98c1a9;
+  border: 1px solid #98c1a9;
 }
 
 footer section {
