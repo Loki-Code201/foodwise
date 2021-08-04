@@ -128,7 +128,7 @@ function formCb(event) {
 
   // iterates through the key and value of the form inputs
   for (const pair of formData.entries()) {
-    values.push(pair[1]);
+    values.push(pair[1].trim()); // trims any extra spaces before or after the input
   }
 
   // gets what is in the current local storage array of objects (if any), and add an object into that array and then put that array back into local storage
