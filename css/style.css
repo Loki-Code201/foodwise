@@ -1,8 +1,11 @@
 body {
-  background-color: white;
+  background-color: #d6e6dd;
+  display: block;
   font-family: "Ubuntu", sans-serif;
-  width: 100%;
+  width: 74%;
   color: black;
+  margin: 0px auto;
+  overscroll-behavior: none;
 }
 
 h1 {
@@ -44,15 +47,34 @@ h1:hover {
   text-decoration: none;
 }
 
-header,
-footer {
-  height: 160px;
-  width: 75%;
+header {
+  background-color: white;
+  /* border-left: 1px solid white; */
+  position: fixed;
+  height: 120px;
+  width: 74%;
+  top: 0px;
+  left: 12.95%;
+  right: 12.95%;
+  margin: 0px auto;
   max-width: 960px;
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  z-index: 1;
+  border-left: 1px solid #98c1a9;
+  border-right: 1px solid #98c1a9;
+  /* margin: 0px auto; */
+}
+
+header section {
+  /* width: 960px; */
+  display: flex;
+  flex-direction: row;
+  /* max-width: 960px; */
   justify-content: space-between;
   align-items: center;
-  margin: 0px auto;
+  padding: 30px;
 }
 
 ul {
@@ -110,14 +132,19 @@ ul {
 }
 
 main {
-  width: 75%;
+  width: 100%;
+  min-height: 1320px;
   align-items: center;
-  margin: 0px auto;
+  margin: 119px auto 99px auto;
   max-width: 960px;
   background-color: #f2f2f2;
-  border-radius: 3px;
-  box-shadow: 0px 0px 3px rgb(103, 103, 103);
-  padding: 30px;
+  z-index: -1;
+  padding-bottom: 40px;
+  border-left: 1px solid #98c1a9;
+  border-right: 1px solid #98c1a9;
+  /* border-radius: 3px; */
+  /* box-shadow: 0px 0px 3px rgb(103, 103, 103); */
+  /* padding: 30px; */
 }
 
 section {
@@ -129,11 +156,11 @@ section {
 #landingImage {
   display: flex;
   background-image: url(../images/produce-table.jpg);
-  height: 928px;
+  height: 640px;
   justify-content: space-evenly;
   align-items: center;
-  border-radius: 4px;
-  border: 1px solid lightgray;
+  /* border-radius: 4px; */
+  /* border: 1px solid lightgray; */
 }
 
 #welcome, #story {
@@ -145,7 +172,7 @@ section {
   width: 60%;
   max-width: 640px;
   height: 50%;
-  max-height: 380px;
+  max-height: 300px;
   vertical-align: middle;
   border-radius: 4px;
   box-shadow: 0px 0px 5px black;
@@ -191,42 +218,124 @@ p {
   line-height: 1.4;
 }
 
-#cartsImage {
-  display: flex;
-  background-image: url(../images/carts2.jpg);
-  height: 365px;
-  justify-content: space-evenly;
-  align-items: center;
-  border-radius: 4px;
-  margin-bottom: 30px;
-  border: 1px solid lightgray;
-}
+/* #pantryBG {
+  background-image: url(../images/pantryBG.jpg); 
+} */
 
 #pantryImage {
   display: flex;
-  background-image: url(../images/pantry.jpg);
-  height: 365px;
-  justify-content: space-evenly;
+  background-image: url(../images/produceImage.jpg);
+  height: 400px;
+  justify-content: center;
   align-items: center;
-  border-radius: 4px;
   margin-bottom: 30px;
-  border: 1px solid lightgray;
+}
+
+#cartsImage {
+  display: flex;
+  background-image: url(../images/carts2.jpg);
+  height: 400px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
 }
 
 #pantryForm, #listForm {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   background-color: white;
-  opacity: 95%;
-  width: 100%;
-  max-width: 800px;
-  height: 50%;
-  max-height: 380px;
-  vertical-align: middle;
+  opacity: 90%;
+  width: 700px;
+  /* max-width: 600px; */
+  height: 250px;
+  /* max-height: 200px; */
+  align-items: center;
   border-radius: 4px;
   box-shadow: 0px 0px 5px black;
-  padding: 40px;
+  padding: 20px;
+}
+
+#pantryForm h2, #listForm h2 {
+margin: 20px 0px 0px 0px;
+}
+
+#pantryForm fieldset, #listForm fieldset{
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 10px;
+  align-items: center;
+  border: 1px solid lightgray;
+}
+
+#pantryForm legend, #listForm legend {
+  text-align: left;
+  margin-left: 10px;
+}
+
+#addFood, #addItem {
+  display: flex;
+}
+
+#addFood fieldset, #addItem fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+#addFood input, #addFood select, #addItem input, #addItem select {
+  height: 25px;
+  margin: 0px 10px 0px 3px;
+  /* padding-left: 8px; */
+}
+
+#addFood #name, #addItem #name {
+  width: 100px;
+}
+
+#addFood #quantity, #addItem #quantity {
+  width: 35px;
+}
+
+#date {
+  width: 120px;
+}
+
+#addFood button, #addItem button {
+  margin: 30px 0px;
+  width: 80px;
+  height: 35px;
+}
+
+table {
+  width: 75%;
+  margin: 0px auto;
+}
+
+th {
+  font-weight: bolder;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-position: under;
+  color: #328453;
+  padding-bottom: 10px;
+}
+
+tr, td {
+  padding: 10px 30px;
+  text-align: center;
+}
+
+tr:hover {
+  background-color: white;
+  border-radius: 4px;
+}
+
+thead > tr:hover {
+  background-color: #f2f2f2;
 }
 
 .reset {
@@ -235,28 +344,21 @@ p {
   margin-top: 20px;
 }
 
-#pantryForm, #listForm legend {
-  text-align: left;
-  margin-left: 10px;
-}
-
 #pastaImage {
   display: flex;
   background-image: url(../images/pasta5.jpg);
-  height: 700px;
+  height: 640px;
   justify-content: space-evenly;
   align-items: center;
-  border-radius: 4px;
-  border: 1px solid lightgray;
 }
 
-#pastaImage h2 {
-  margin: 10px 0px;
+#story h2 {
+  margin: 5px 0px;
 }
 
-#pastaImage p {
+#story p {
   margin: 10px;
-  font-size: 1.2em;
+  font-size: 1.05em;
 }
 
 .describe {
@@ -279,7 +381,6 @@ p {
   width: 275px;
   border-radius: 50%;
   margin: 20px;
-  border: 1px solid lightgray;
   box-shadow: 2px 2px 5px lightgray;
 }
 
@@ -458,15 +559,25 @@ thead > tr:hover {
 } */
 
 footer {
-  width: 100%;
-  padding: 40px;
+  background-color: white;
+  position: fixed;
+  height: 100px;
+  width: 74%;
+  max-width: 960px;
+  bottom: 0px;
+  left: 12.95%;
+  right: 12.95%;
   margin: 0px auto;
-  flex-direction: column;
   justify-content: center;
+  padding-top: 20px;
+  border: 1px solid #98c1a9;
 }
 
-footer p {
-  margin: 40px;
+footer section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 footer img {
