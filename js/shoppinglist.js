@@ -20,21 +20,9 @@ ListItem.prototype.renderItem = function() {
 ///////////// helper function /////////////////////
 function _makeTheItem(name, quantity, category) {
   let newItem = new ListItem(name, quantity, category);
-
   newItem.renderItem();
 }
 
-  /////////////////////////// from my BusMall site ///////////////////////////////  
-  //   function storeProduct() {
-  //     // prepare the data to be stored
-  //     // console.log(Product.allProducts);
-  //     const stringifiedArray = JSON.stringify(Product.allProducts);
-  //     console.log(Product.allProducts);
-  //     // store the data in storage with the key
-  //     localStorage.setItem('product', stringifiedArray);
-  // }
-  
-  
 // attributes is an object  = {src: "", alt: ""}
 function makeElement(tagName, parent, textContent, attributes) {
     let element = document.createElement(tagName);
@@ -52,12 +40,9 @@ function makeElement(tagName, parent, textContent, attributes) {
   
   //use JSON.stringify() to turn objects into strings so they can be put into storage
   //use JSON.parse() to turn strings back into objects so you can pull them back out of storage
-
   //////////////////////// local storage functions (Kason's code) ////////////////////////
 function setLocalStorage(name, array) {
-  console.log();
   const stringifiedArray = JSON.stringify(array);
-  console.log();
   localStorage.setItem(name, stringifiedArray)
 }
   
@@ -68,14 +53,6 @@ function getLocalStorage(name) {
     return parsedArray;
   }
 }
-
-// function renderFromStorage() {
-//   console.log(storageData);
-//   const rehydratedValues = Object.values(storageData);
-//   const rehydratedObj = new Item(...rehydratedValues);
-//   console.log(rehydratedValues);
-//   console.log(rehydratedObj);
-// }
   
 //////////////// Listeners ////////////////////////
 function listCb(event) {
@@ -92,9 +69,26 @@ function listCb(event) {
   const item = new ListItem(...values);
   // add to local storage instead and then render from local storage
   const currentItemsArray = [item];
-  setLocalStorage("list", currentItemsArray);
+
+  // if there's data in local storage, add new item to local storage without removing existing data
+  // else if no data, create new local storage
+  if (getLocalStorage("list")) {
+    let blah = getLocalStorage("list");
+    blah.push(item);
+    setLocalStorage("list", blah);
+  } else {
+    setLocalStorage("list", currentItemsArray);
+  }
+}
+
+function renderFromStorage() {
+  // get data from local storage and render it to the UL on shopping-list.html
+  getLocalStorage("list");  
+  const textContent = `${quantity} ${name} | Category: ${category}`;
+  makeElement('li', document.getElementById('shopping-list'), textContent);
 }
 
 const list = document.getElementById("addItem");
 list.addEventListener("submit", listCb);
+renderFromStorage();
   
