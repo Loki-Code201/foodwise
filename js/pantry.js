@@ -39,6 +39,60 @@ function setLocalStorage(name, array) {
 }
 
 ////////////////// rendering functions
+//
+function renderTableButton(value, className, fn) {
+  let btn = document.createElement("input");
+  btn.type = "button";
+
+  btn.className = className;
+  btn.value = value;
+  btn.onclick = fn;
+  return btn;
+}
+
+function deleteItemFromTable(event) {
+  const th = event.target.parentNode;
+  const tr = th.parentNode;
+  tr.parentNode.removeChild(tr);
+  // re render the table?
+  // this function rerenders it automatically it seems, so don't need to RE render
+}
+function deleteItemFromStorage(event) {
+  const currentItemToDelete = event.target.parentNode.parentNode;
+  const currentItemTDs = currentItemToDelete.children;
+
+  // convert the HTMLCollection to an array
+  const newArray = [...currentItemTDs];
+  // remove the first item out of the array (this is the button in the table which we don't need right here)
+  newArray.shift();
+
+  const itemValues = [];
+  for (let td of newArray) {
+    itemValues.push(td.innerHTML);
+  }
+  console.log(itemValues);
+
+  const currentLocalStorage = getLocalStorage("pantry");
+  console.log(currentLocalStorage);
+
+  const filtered = currentLocalStorage.filter(function (el) {
+    return el.name != itemValues[0];
+  });
+
+  console.log(filtered);
+  console.log(currentLocalStorage);
+  return filtered; // returns the new array to put in Local Storage
+}
+
+function deleteItem(event) {
+  deleteItemFromTable(event);
+  setLocalStorage("pantry", deleteItemFromStorage(event));
+
+  // delete obj
+  // delete item from local storage
+  // separate functions?
+}
+
 // table stuff
 // values parameter is an array
 function renderTableRow(values) {
@@ -47,7 +101,8 @@ function renderTableRow(values) {
 
   for (const array of values) {
     const trElem = makeElement("tr", tbodyElem);
-    makeElement("th", trElem, "placeholder");
+    const thElem = makeElement("th", trElem);
+    thElem.appendChild(renderTableButton("Delete", "button", deleteItem));
 
     for (const value of array) {
       makeElement("td", trElem, value);
@@ -78,6 +133,18 @@ function formCb(event) {
 
   // gets what is in the current local storage array of objects (if any), and add an object into that array and then put that array back into local storage
   if (currentLocalStorage) {
+    // check for duplicate item names
+    const checkDuplicate = currentLocalStorage.some((elem) => {
+      return elem.name.toLowerCase() === values[0].toLowerCase();
+    });
+    if (checkDuplicate) {
+      // remove from local storage to update the quantity then add back
+      values[1];
+      alert("Already Added");
+      // offer to add the quanitity
+      return;
+    }
+
     currentLocalStorage.push(new PantryItem(...values));
     setLocalStorage("pantry", currentLocalStorage);
   } else {
