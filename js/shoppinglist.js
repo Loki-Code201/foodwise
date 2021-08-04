@@ -13,7 +13,7 @@ function ListItem(name, quantity, category) {
 
 //////////// prototype method ///////////////////////////
 ListItem.prototype.renderItem = function() {
-  const itemString = `${this.quantity} ${this.name} | Category: ${this.category}`
+  const itemString = `Item: ${this.name} | Quantity: ${this.quantity} | Category: ${this.category}`
   makeElement('li', document.getElementById('shopping-list'), itemString)
 }
 
@@ -79,16 +79,26 @@ function listCb(event) {
   } else {
     setLocalStorage("list", currentItemsArray);
   }
+  /// clear out shopping list  
+  document.getElementById('shopping-list').innerHTML = '';
+
+  /// update render
+  renderFromStorage();
 }
 
 function renderFromStorage() {
   // get data from local storage and render it to the UL on shopping-list.html
-  getLocalStorage("list");  
-  const textContent = `${quantity} ${name} | Category: ${category}`;
+  const storageResults = getLocalStorage("list");
+  for (let result of storageResults) {
+    
+  const textContent = `Item: ${result.name} | Quantity: ${result.quantity} | Category: ${result.category}`;
   makeElement('li', document.getElementById('shopping-list'), textContent);
+  }
 }
 
 const list = document.getElementById("addItem");
 list.addEventListener("submit", listCb);
 renderFromStorage();
   
+
+// Item: ${this.name} | Quantity: ${this.quantity} | Category: ${this.category}

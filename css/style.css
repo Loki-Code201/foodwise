@@ -411,6 +411,73 @@ thead > tr:hover {
   width: 20px;
 }
 
+#addFood {
+  display: flex;
+}
+
+#addFood fieldset, #addItem fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+  border: thin solid lightgray;
+  width: 100%;
+}
+
+#addFood input, #addFood select, #addItem input, #addItem select {
+  height: 25px;
+  margin: 0px 15px 0px 5px;
+  padding-left: 8px;
+}
+
+#addFood #name, #addItem #name {
+  width: 120px;
+}
+
+#addFood #quantity, #addItem #quantity {
+  width: 35px;
+}
+
+#addFood button, #addItem button {
+  margin: 30px 0px;
+  width: 80px;
+  height: 40px;
+}
+
+table {
+  width: 75%;
+  margin: 0px auto;
+}
+
+th {
+  font-weight: bolder;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-position: under;
+  color: #328453;
+  padding-bottom: 10px;
+}
+
+tr,
+td {
+  padding: 10px 30px;
+  text-align: center;
+}
+
+tr:hover {
+  background-color: white;
+  border-radius: 4px;
+}
+
+thead > tr:hover {
+  background-color: #f2f2f2;
+}
+/* #listForm {
+  background-image: url(../images/carts.jpg);
+  height: 1300px;
+} */
+
 .bwtocolor {
   width: 200px;
   border-radius: 50%;
@@ -538,3 +605,35 @@ footer img {
   height: 35px;
   width: 120px;
 }
+
+#shopping-list {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0px auto;
+  text-align: left;
+}
+
+#shopping-list li {
+  cursor: pointer;
+  /* position: relative; */
+  padding: 12px 8px 12px 40px;
+  background: white;
+  font-size: 16px;
+  transition: 0.2s;
+  /* -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; */
+  border-bottom: solid lightblue .5px;
+}
+
+/* #shopping-list li:nth-child(odd) {
+  background: #f9f9f9;
+} */
+
+#shopping-list li:hover {
+  background: #ddd;
+}
+
+
