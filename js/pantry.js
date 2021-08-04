@@ -128,6 +128,14 @@ function formCb(event) {
     values.push(pair[1].trim().toLowerCase()); // trims any extra spaces before or after the input
   }
 
+  // use a regular expression to test input name for just letters
+  const regEx = /^[a-zA-Z]+$/;
+  let testReg = regEx.exec(values[0]);
+  if (testReg === null) {
+    alert("bad input");
+    return;
+  }
+
   // gets what is in the current local storage array of objects (if any), and add an object into that array and then put that array back into local storage
   if (currentLocalStorage) {
     // check for duplicate item names
