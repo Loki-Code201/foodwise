@@ -46,11 +46,11 @@ function renderTableRow(values) {
   tbodyElem.innerHTML = "";
 
   for (const array of values) {
-    makeElement("tr", tbodyElem);
-    makeElement("th", tbodyElem, "placeholder");
+    const trElem = makeElement("tr", tbodyElem);
+    makeElement("th", trElem, "placeholder");
 
     for (const value of array) {
-      makeElement("td", tbodyElem, value);
+      makeElement("td", trElem, value);
     }
   }
 }
