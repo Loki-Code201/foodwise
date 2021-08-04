@@ -1,12 +1,12 @@
 body {
   background-color: white;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   width: 100%;
   color: black;
 }
 
 h1 {
-  font-family: 'Comfortaa', sans-serif;
+  font-family: "Comfortaa", sans-serif;
   font-size: 3.5em;
   color: #328453;
 }
@@ -44,7 +44,8 @@ h1:hover {
   text-decoration: none;
 }
 
-header, footer {
+header,
+footer {
   height: 160px;
   width: 75%;
   max-width: 960px;
@@ -75,7 +76,7 @@ li {
 }
 
 .hover-underline-animation:after {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   transform: scaleX(0);
@@ -93,7 +94,8 @@ li {
 }
 
 .icon {
-  filter: invert(44%) sepia(13%) saturate(1629%) hue-rotate(91deg) brightness(96%) contrast(94%);
+  filter: invert(44%) sepia(13%) saturate(1629%) hue-rotate(91deg)
+    brightness(96%) contrast(94%);
 }
 
 #nav .icon {
@@ -168,7 +170,7 @@ button {
   height: 62px;
   text-transform: uppercase;
   font-size: 1.2em;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   border: none;
   background-color: #328453;
   color: white;
@@ -295,7 +297,7 @@ p {
   margin: 30px 0px;
 }
 
-.review  {
+.review {
   width: 30%;
 }
 
@@ -343,11 +345,11 @@ p {
 }
 
 table {
-width: 75%;
-margin: 0px auto;
+  width: 75%;
+  margin: 0px auto;
 }
 
-th{
+th {
   font-weight: bolder;
   text-transform: uppercase;
   text-decoration: underline;
@@ -356,16 +358,20 @@ th{
   padding-bottom: 10px;
 }
 
-tr, td {
+tr,
+td {
   padding: 10px 30px;
   text-align: center;
 }
 
-td:hover {
+tr:hover {
   background-color: white;
   border-radius: 4px;
 }
 
+thead > tr:hover {
+  background-color: #f2f2f2;
+}
 /* #shoppingList {
   background-image: url(../images/carts.jpg);
   height: 1300px;
@@ -374,14 +380,14 @@ td:hover {
 .bwtocolor {
   width: 200px;
   border-radius: 50%;
-	-webkit-filter: grayscale(100%);
-	filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
   transition: all 0.25s ease-in-out;
 }
 
 .bwtocolor:hover {
-	-webkit-filter: grayscale(0);
-	filter: grayscale(0);
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
   transition: all 0.25s ease-in-out;
   cursor: pointer;
   box-shadow: 1px 1px 4px black;
@@ -393,7 +399,7 @@ td:hover {
 }
 
 .bio {
-  width: 20%;  
+  width: 20%;
   display: inline-block;
   margin: 10px;
   height: 100%;
@@ -409,7 +415,7 @@ td:hover {
   display: flex;
   justify-content: space-evenly;
   width: 175px;
-  font-size: .85em;
+  font-size: 0.85em;
   margin-left: 6px;
 }
 
