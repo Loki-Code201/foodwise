@@ -35,7 +35,7 @@ a {
 }
 
 a:hover {
-  color: black;
+  color: #631604;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
 }
@@ -99,6 +99,12 @@ li {
 #nav .icon {
   margin: -5px 3px;
   filter: none;
+  transition: all 0.3s ease-in-out;
+}
+
+#nav .icon:hover {
+  filter: invert(10%) sepia(57%) saturate(3979%) hue-rotate(3deg) brightness(96%) contrast(98%);
+  transition: all 0.3s ease-in-out;
 }
 
 main {
@@ -121,23 +127,23 @@ section {
 #landingImage {
   display: flex;
   background-image: url(../images/produce-table.jpg);
-  /* width: 1000px; */
   height: 928px;
   justify-content: space-evenly;
   align-items: center;
   border-radius: 4px;
+  border: 1px solid lightgray;
 }
 
-#welcome {
+#welcome, #story {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   background-color: white;
-  opacity: 85%;
+  opacity: 90%;
   width: 60%;
   max-width: 640px;
   height: 50%;
-  max-height: 360px;
+  max-height: 380px;
   vertical-align: middle;
   border-radius: 4px;
   box-shadow: 0px 0px 5px black;
@@ -181,6 +187,74 @@ button:hover {
 p {
   margin: 20px;
   line-height: 1.4;
+}
+
+#cartsImage {
+  display: flex;
+  background-image: url(../images/carts2.jpg);
+  height: 365px;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 4px;
+  margin-bottom: 30px;
+  border: 1px solid lightgray;
+}
+
+#pantryImage {
+  display: flex;
+  background-image: url(../images/pantry.jpg);
+  height: 365px;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 4px;
+  margin-bottom: 30px;
+  border: 1px solid lightgray;
+}
+
+#pantryForm, #shoppingList {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: white;
+  opacity: 95%;
+  width: 100%;
+  max-width: 800px;
+  height: 50%;
+  max-height: 380px;
+  vertical-align: middle;
+  border-radius: 4px;
+  box-shadow: 0px 0px 5px black;
+  padding: 40px;
+}
+
+.reset {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#pantryForm, #shoppingList legend {
+  text-align: left;
+  margin-left: 10px;
+}
+
+#pastaImage {
+  display: flex;
+  background-image: url(../images/pasta5.jpg);
+  height: 700px;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 4px;
+  border: 1px solid lightgray;
+}
+
+#pastaImage h2 {
+  margin: 10px 0px;
+}
+
+#pastaImage p {
+  margin: 10px;
+  font-size: 1.2em;
 }
 
 .describe {
@@ -292,6 +366,11 @@ td:hover {
   border-radius: 4px;
 }
 
+/* #shoppingList {
+  background-image: url(../images/carts.jpg);
+  height: 1300px;
+} */
+
 .bwtocolor {
   width: 200px;
   border-radius: 50%;
@@ -340,6 +419,30 @@ td:hover {
   color: #328453;
   font-family: "Ubuntu", sans-serif;
   line-height: 1.2em;
+  transition: all 0.3s ease-in-out;
+}
+
+.bio h3:hover {
+  color: #631604;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.linkedgit {
+  display: flex;
+  justify-content: center;
+}
+
+.linkedgit img {
+  margin: 0px 5px;
+  width: 30px;
+  transition: all 0.3s ease-in-out;
+}
+
+.linkedgit img:hover {
+  background-color: f2f2f2;
+  opacity: 40%;
+  transition: all 0.3s ease-in-out;
 }
 
 /* hr {
