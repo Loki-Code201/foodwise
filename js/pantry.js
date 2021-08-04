@@ -57,7 +57,21 @@ function deleteItemFromTable(event) {
   // re render the table?
   // this function rerenders it automatically it seems, so don't need to RE render
 }
-function deleteItemFromStorage(event) {
+
+function deleteItemFromStorage(array) {
+  // deletes an obj from Local Storage based off the name property
+  const currentLocalStorage = getLocalStorage("pantry");
+
+  const filtered = currentLocalStorage.filter(function (el) {
+    return el.name != array[0];
+  });
+
+  return filtered; // returns the new filtered array
+}
+
+function deleteItem(event) {
+  deleteItemFromTable(event);
+
   const currentItemToDelete = event.target.parentNode.parentNode;
   const currentItemTDs = currentItemToDelete.children;
 
@@ -70,23 +84,7 @@ function deleteItemFromStorage(event) {
   for (let td of newArray) {
     itemValues.push(td.innerHTML);
   }
-  console.log(itemValues);
-
-  const currentLocalStorage = getLocalStorage("pantry");
-  console.log(currentLocalStorage);
-
-  const filtered = currentLocalStorage.filter(function (el) {
-    return el.name != itemValues[0];
-  });
-
-  console.log(filtered);
-  console.log(currentLocalStorage);
-  return filtered; // returns the new array to put in Local Storage
-}
-
-function deleteItem(event) {
-  deleteItemFromTable(event);
-  setLocalStorage("pantry", deleteItemFromStorage(event));
+  setLocalStorage("pantry", deleteItemFromStorage(itemValues));
 
   // delete obj
   // delete item from local storage
@@ -134,14 +132,25 @@ function formCb(event) {
   // gets what is in the current local storage array of objects (if any), and add an object into that array and then put that array back into local storage
   if (currentLocalStorage) {
     // check for duplicate item names
+    let quantityBefore;
     const checkDuplicate = currentLocalStorage.some((elem) => {
+      quantityBefore = elem.quantity;
       return elem.name.toLowerCase() === values[0].toLowerCase();
     });
     if (checkDuplicate) {
       // remove from local storage to update the quantity then add back
-      values[1];
-      alert("Already Added");
-      // offer to add the quanitity
+
+      // since the input was a duplicate, delete from local storage
+      const updatedQuantity = deleteItemFromStorage(values);
+      //
+      // get the sum of the previous quantity and the new quantity entered
+      values[1] = parseInt(values[1]) + parseInt(quantityBefore);
+
+      // add the new item to local storage with the updated quantity
+      updatedQuantity.push(new PantryItem(...values)); // push a new PantryItem with the quanitities added together
+      setLocalStorage("pantry", updatedQuantity);
+      renderFromStorage(getLocalStorage("pantry"));
+
       return;
     }
 
