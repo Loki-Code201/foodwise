@@ -1,70 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FoodWise</title>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&family=Ubuntu&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <header>
-      <a href="index.html">
-        <h1>foodWise</h1>
-      </a>
-      <ul id="nav">
-        <li class="hover-underline-animation"><a href="../index.html"><img class="icon" src="../images/icons/home-smile-line.png" alt="home">Home</a></li>
-        <li class="hover-underline-animation"><a href="pantry.html"><img class="icon" src="../images/icons/bar-chart-grouped-fill.png" alt="pantry">Pantry</a></li>
-        <li class="hover-underline-animation"><a href="shopping-list.html"><img class="icon" src="../images/icons/checkbox-multiple-line.png" alt="shopping list">Shopping List</a></li>
-        <li class="hover-underline-animation"><a href="about.html"><img class="icon" src="../images/icons/group-line.png" alt="About">About</a></li>
-      </ul>
-    </header>
-      <main>
-        <section id="story">
-            <h2>Our Story</h2>
-            <p>It all began one day when Kason went to his pantry to get some gluten-free pasta (a staple in his house) for his dinner. He realized that he had run out and he couldn't believe it! He ALWAYS had gluten-free pasta in his pantry, but somehow, he forgot to buy some the last time he went to the store.</p>
-            
-            <p>He was telling his friends Ryan, Stefanie, and Rahzae about his frustration, and they all chimed in with their own similar stories, and how they wished there was a way to track their grocery items so they could replace them before they ran out, or ensure they were used before they passed their expiration date.</p>
-            
-            <p>And FoodWise was born....</p>
-        </section>
-        <section id="team">
-            <h2>Our Team</h2>
-        </section>
-        <section id="bios">
-            <article id="kason" class="bio">
-                <a href="https://www.linkedin.com/in/kason-braley/" target="_blank"><img src="../images/KasonBraley.jpg" alt="Kason Braley" class="bwtocolor">
-                <h3>Kason Braley</h3></a>
-                <p>Kason is a Navy veteran with a passion for streamlined solutions to everyday problems. He enjoys ...?</p>
-                <a href="https://www.linkedin.com/in/kason-braley/">LinkedIn</a> | <a href="https://github.com/KasonBraley">GitHub</a>
-            </article>
-            <article id="ryan" class="bio">
-              <a href="https://www.linkedin.com/in/ryanemmans/" target="_blank"><img src="../images/RyanEmmans.jpg" alt="Ryan Emmans" class="bwtocolor">
-                <h3>Ryan Emmans</h3></a>
-                <p>Ryan is a Seattle based software developer previously from Chicago. Along with an extensive and diverse background in craft bartending and furniture making, he has a devoted passion for all platforms of visual design. In his free time, he finds pleasure in hiking, riding bikes, nerding out over architecture, and hanging out with his cat.</p>
-                <a href="https://www.linkedin.com/in/ryanemmans/">LinkedIn</a> | <a href="https://github.com/ryanemmans">GitHub</a>
-            </article>        
-            <article id="stefanie" class="bio">
-                <a href="https://www.linkedin.com/in/stefanie-riehle/" target="_blank"><img src="../images/StefanieRiehle.jpg" alt="Stefanie Riehle" class="bwtocolor">
-                <h3>Stefanie Riehle</h3></a>
-                <p>Stefanie is a Seattle transplant who still can't believe she gets to live in Seattle even after 10 years. In a former life she was an HR professional, but now  brings ideas to life through technology. In her free time, she enjoys kayaking, hanging out with her amazing daughter, her friends, and her many, many plants.</p>
-                <a href="https://www.linkedin.com/in/stefanie-riehle/">LinkedIn</a> | <a href="https://github.com/stefrie">GitHub</a>
-            </article>
-            <article id="rahzae" class="bio">
-                <a href="https://www.linkedin.com/in/rahzae-williams-29ab081b0/" target="_blank"><img src="../images/RahzaeWilliams.jpg" alt="Rahzae Williams" class="bwtocolor">
-                <h3>Rahzae Williams</h3></a>
-                <p>Rahzae is a Navy veteran who loves to build websites. He enjoys photography, art, and long walks with his pittie, Stormy.</p>
-                <a href="https://www.linkedin.com/in/rahzae-williams-29ab081b0/">LinkedIn</a> | <a href="https://github.com/Rahzae">GitHub</a>
-            </article>   
-        </section>
-    </main>
-    <footer>
-      <p>&#169;2021 Code Fellows, Inc. | <a href="about.html">Team Loki</a></p>
-    </footer>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoodWise</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&family=Ubuntu&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <a href="index.html">
+      <h1>foodWise</h1>
+    </a>
+    <ul id="nav">
+      <li class="hover-underline-animation"><a href="../index.html"><img class="icon"
+            src="../images/icons/home-smile-line.png" alt="home">Home</a></li>
+      <li class="hover-underline-animation"><a href="pantry.html"><img class="icon"
+            src="../images/icons/door-open-line.png" alt="pantry">Pantry</a></li>
+      <li class="hover-underline-animation"><a href="shopping-list.html"><img class="icon"
+            src="../images/icons/checkbox-multiple-line.png" alt="shopping list">Shopping List</a></li>
+      <li class="hover-underline-animation"><a href="about.html"><img class="icon" src="../images/icons/group-line.png"
+            alt="About">About</a></li>
+    </ul>
+  </header>
+  <main>
+    <section id="story">
+      <h2>Our Story</h2>
+      <p>It all began one day when Kason went to his pantry to get some gluten-free pasta (a staple in his house) for
+        his dinner. He realized that he had run out and he couldn't believe it! He ALWAYS had gluten-free pasta in his
+        pantry, but somehow, he forgot to buy some the last time he went to the store.</p>
+
+      <p>He was telling his friends Ryan, Stefanie, and Rahzae about his frustration, and they all chimed in with their
+        own similar stories, and how they wished there was a way to track their grocery items so they could replace them
+        before they ran out, or ensure they were used before they passed their expiration date.</p>
+
+      <p>And FoodWise was born....</p>
+    </section>
+    <section id="team">
+      <h2>Our Team</h2>
+    </section>
+    <section id="bios">
+      <article id="kason" class="bio">
+        <a href="https://www.linkedin.com/in/kason-braley/" target="_blank"><img src="../images/KasonBraley.jpg"
+            alt="Kason Braley" class="bwtocolor">
+          <h3>Kason Braley</h3>
+        </a>
+        <p>Kason is a Navy veteran with a passion for streamlined solutions to everyday problems. He enjoys ...?</p>
+        <a href="https://www.linkedin.com/in/kason-braley/">LinkedIn</a> | <a
+          href="https://github.com/KasonBraley">GitHub</a>
+      </article>
+      <article id="ryan" class="bio">
+        <a href="https://www.linkedin.com/in/ryanemmans/" target="_blank"><img src="../images/RyanEmmans.jpg"
+            alt="Ryan Emmans" class="bwtocolor">
+          <h3>Ryan Emmans</h3>
+        </a>
+        <p>Ryan is a Seattle based software developer previously from Chicago. Along with an extensive and diverse
+          background in craft bartending and furniture making, he has a devoted passion for all platforms of visual
+          design. In his free time, he finds pleasure in hiking, riding bikes, nerding out over architecture, and
+          hanging out with his cat.</p>
+        <a href="https://www.linkedin.com/in/ryanemmans/">LinkedIn</a> | <a
+          href="https://github.com/ryanemmans">GitHub</a>
+      </article>
+      <article id="stefanie" class="bio">
+        <a href="https://www.linkedin.com/in/stefanie-riehle/" target="_blank"><img src="../images/StefanieRiehle.jpg"
+            alt="Stefanie Riehle" class="bwtocolor">
+          <h3>Stefanie Riehle</h3>
+        </a>
+        <p>Stefanie is a Seattle transplant who still can't believe she gets to live in Seattle even after 10 years. In
+          a former life she was an HR professional, but now brings ideas to life through technology. In her free time,
+          she enjoys kayaking, hanging out with her amazing daughter, her friends, and her many, many plants.</p>
+        <a href="https://www.linkedin.com/in/stefanie-riehle/">LinkedIn</a> | <a
+          href="https://github.com/stefrie">GitHub</a>
+      </article>
+      <article id="rahzae" class="bio">
+        <a href="https://www.linkedin.com/in/rahzae-williams-29ab081b0/" target="_blank"><img
+            src="../images/RahzaeWilliams.jpg" alt="Rahzae Williams" class="bwtocolor">
+          <h3>Rahzae Williams</h3>
+        </a>
+        <p>Rahzae is a Navy veteran who loves to build websites. He enjoys photography, art, and long walks with his
+          pittie, Stormy.</p>
+        <a href="https://www.linkedin.com/in/rahzae-williams-29ab081b0/">LinkedIn</a> | <a
+          href="https://github.com/Rahzae">GitHub</a>
+      </article>
+    </section>
+  </main>
+  <footer>
+    <article id="mailingList">
+      <h3>Stay In Touch</h3><img class="icon" src="../images/icons/arrow-right-line.png" alt="arrow right">
+      <form>
+        <fieldset>
+          <label>
+            <input name="email" type="text" placeholder="email">
+          </label>
+          <button id="signUp" type="submit">Sign Up</button>
+        </fieldset>
+      </form>
+    </article>
+    <article>
+      <p>&#169;2021 Code Fellows, Inc. | <a href="about.html">Team Loki</a> |</p>
+    </article>
+  </footer>
 </body>
+
 </html>
