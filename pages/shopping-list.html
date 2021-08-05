@@ -11,26 +11,26 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&family=Ubuntu&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
   <script defer src="../js/shoppinglist.js"></script>
 </head>
 
 <body>
   <header>
     <section>
-    <a href="index.html">
-      <h1>foodWise</h1>
-    </a>
-    <ul id="nav">
-      <li class="hover-underline-animation"><a href="../index.html"><img class="icon"
-            src="../images/icons/home-smile-line.png" alt="home">Home</a></li>
-      <li class="hover-underline-animation"><a href="pantry.html"><img class="icon"
-            src="../images/icons/door-open-line.png" alt="pantry">Pantry</a></li>
-      <li class="hover-underline-animation"><a href="shopping-list.html"><img class="icon"
-            src="../images/icons/checkbox-multiple-line.png" alt="shopping list">Shopping List</a></li>
-      <li class="hover-underline-animation"><a href="about.html"><img class="icon" src="../images/icons/group-line.png"
-            alt="About">About</a></li>
-    </ul>
+      <a href="index.html">
+        <h1>foodWise</h1>
+      </a>
+      <ul id="nav">
+        <li class="hover-underline-animation"><a href="../index.html"><img class="icon"
+              src="../images/icons/home-smile-line.png" alt="home">Home</a></li>
+        <li class="hover-underline-animation"><a href="pantry.html"><img class="icon"
+              src="../images/icons/door-open-line.png" alt="pantry">Pantry</a></li>
+        <li class="hover-underline-animation"><a href="shopping-list.html"><img class="icon"
+              src="../images/icons/checkbox-multiple-line.png" alt="shopping list">Shopping List</a></li>
+        <li class="hover-underline-animation"><a href="about.html"><img class="icon"
+              src="../images/icons/group-line.png" alt="About">About</a></li>
+      </ul>
     </section>
   </header>
   <main>
@@ -40,17 +40,17 @@
         <form id="addItem">
           <fieldset>
             <legend>
-              <h3>Add Food to Shopping List</h3>
+              <h3>Add to Shopping List</h3>
             </legend>
 
-            <label for="food">Item Name</label>
+            <label for="food">Item</label>
             <input id="name" type="text" name="food" value="orange">
 
             <label for="quantity">Quantity</label>
             <input id="quantity" type="number" name="quantity" value="1">
 
             <label for="category">Category</label>
-            <select name="category">
+            <select class="category" name="category">
               <option value="Fruit">Fruit</option>
               <option value="Vegetables">Vegetables</option>
               <option value="Meat">Meat</option>
@@ -83,20 +83,22 @@
     </section>
   </main>
   <footer>
-    <article id="mailingList">
-      <h3>Stay In Touch</h3><img class="icon" src="../images/icons/arrow-right-line.png" alt="arrow right">
-      <form>
-        <fieldset>
-          <label>
-            <input name="email" type="text" placeholder="email">
-          </label>
-          <button id="signUp" type="submit">Sign Up</button>
-        </fieldset>
-      </form>
-    </article>
-    <article>
-      <p>&#169;2021 Code Fellows, Inc. | foodWise | <a href="about.html">Team Loki</a></p>
-    </article>
+    <section>
+      <article id="mailingList">
+        <h3>Stay In Touch</h3><img class="icon" src="../images/icons/arrow-right-line.png" alt="arrow right">
+        <form>
+          <fieldset>
+            <label>
+              <input name="email" type="text" placeholder="email">
+            </label>
+            <button id="signUp" type="submit">Sign Up</button>
+          </fieldset>
+        </form>
+      </article>
+      <article>
+        <p>&#169;2021 Code Fellows, Inc. | foodWise | <a href="about.html">Team Loki</a></p>
+      </article>
+    </section>
   </footer>
 </body>
 
