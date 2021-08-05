@@ -49,7 +49,6 @@ h1:hover {
 
 header {
   background-color: white;
-  /* border-left: 1px solid white; */
   position: fixed;
   height: 120px;
   width: 74%;
@@ -68,13 +67,15 @@ header {
 }
 
 header section {
-  /* width: 960px; */
   display: flex;
   flex-direction: row;
-  /* max-width: 960px; */
   justify-content: space-between;
   align-items: center;
   padding: 30px;
+}
+
+#logo {
+  height: 70px;
 }
 
 ul {
@@ -143,9 +144,6 @@ main {
   padding-bottom: 40px;
   border-left: 1px solid #98c1a9;
   border-right: 1px solid #98c1a9;
-  /* border-radius: 3px; */
-  /* box-shadow: 0px 0px 3px rgb(103, 103, 103); */
-  /* padding: 30px; */
 }
 
 section {
@@ -160,8 +158,6 @@ section {
   height: 640px;
   justify-content: space-evenly;
   align-items: center;
-  /* border-radius: 4px; */
-  /* border: 1px solid lightgray; */
 }
 
 #welcome,
@@ -195,6 +191,20 @@ section {
 }
 
 button {
+  width: 200px;
+  height: 62px;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  font-family: "Ubuntu", sans-serif;
+  border: none;
+  background-color: #328453;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+#deleteItem {
   width: 200px;
   height: 62px;
   text-transform: uppercase;
@@ -249,7 +259,7 @@ p {
   background-color: white;
   opacity: 92%;
   width: 700px;
-  height: 250px;
+  height: 200px;
   align-items: center;
   border-radius: 4px;
   box-shadow: 0px 0px 5px black;
@@ -274,15 +284,11 @@ p {
 
 #addFood fieldset, #addItem fieldset {
   display: flex;
-  /* width: 100%; */
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: nowrap;
-  /* padding: -50px 0px; */
   border: 1px solid lightgray;
-  /* margin-bottom: 40px; */
-  /* width: 100%; */
 }
 
 .formCol {
@@ -298,14 +304,13 @@ p {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  margin: 7px 0px;
-  /* width: 100%; */
+  margin: -7px 0px;
 }
 
-#addBtn {
-  /* margin-top: 48px; */
-  /* margin-left: 5px; */
-}
+/* #addBtn {
+  margin-top: 48px;
+  margin-left: 5px;
+} */
 
 #addFood label, #addItem label {
   font-size: 1.2em;
@@ -315,8 +320,6 @@ p {
 
 #addFood input, #addFood select, #addItem input, #addItem select {
   height: 25px;
-  /* margin: 5px; */
-  /* padding-left: 8px; */
 }
 
 #addFood #name, #addItem #name, #addFood .category, #addItem .category, #date {
@@ -328,16 +331,6 @@ p {
   border-bottom: 2px solid #328453;
   background-color: #f2f2f2;
 }
-
-/* #date {
-  width: 160px;
-  height: 25px;
-  font-size: 1.2em;
-  font-family: 'Ubuntu', sans-serif;
-  border: none;
-  border-bottom: 2px solid #328453;
-  background-color: #f2f2f2;
-} */
 
 #addFood #quantity, #addItem #quantity {
   width: 40px;
@@ -467,7 +460,6 @@ thead > tr:hover {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  /* margin-bottom: 40px; */
   border: thin solid lightgray;
   width: 100%;
 }
@@ -475,7 +467,6 @@ thead > tr:hover {
 #addFood input, #addFood select, #addItem input, #addItem select {
   height: 35px;
   margin: 0px 5px 0px 0px;
-  /* padding-left: 8px; */
 }
 
 #addFood #name,
@@ -489,7 +480,6 @@ thead > tr:hover {
 }
 
 #addFood button, #addItem button {
-  /* margin: 30px 0px; */
   width: 80px;
   height: 35px;
 }
