@@ -1,0 +1,681 @@
+body {
+  background-color: #d6e6dd;
+  display: block;
+  font-family: "Ubuntu", sans-serif;
+  width: 74%;
+  color: black;
+  margin: 0px auto;
+  overscroll-behavior: none;
+}
+
+h1 {
+  font-family: "Comfortaa", sans-serif;
+  font-size: 3.5em;
+  color: #328453;
+}
+
+h2 {
+  font-family: "Comfortaa", sans-serif;
+  font-size: 1.9em;
+  margin-bottom: 20px;
+  text-align: center;
+  margin-top: 30px;
+  color: #328453;
+}
+
+h3 {
+  margin: 10px 5px;
+  font-size: 1.2em;
+  color: #328453;
+  font-family: "Ubuntu", sans-serif;
+  line-height: 1.2em;
+}
+
+a {
+  color: #328453;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+  color: #631604;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+h1:hover {
+  text-decoration: none;
+}
+
+header {
+  background-color: white;
+  position: fixed;
+  height: 120px;
+  width: 74%;
+  top: 0px;
+  left: 12.95%;
+  right: 12.95%;
+  margin: 0px auto;
+  max-width: 960px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  z-index: 1;
+  border-left: 1px solid #98c1a9;
+  border-right: 1px solid #98c1a9;
+  /* margin: 0px auto; */
+}
+
+header section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+}
+
+#logo {
+  height: 70px;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#nav li {
+  display: inline;
+  text-transform: uppercase;
+  margin-left: 30px;
+  font-family: "Comfortaa", sans-serif;
+  transition: all 0.3s ease-in-out;
+  line-height: 1.4em;
+}
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: #631604;
+}
+
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 3px;
+  bottom: -8px;
+  left: 0;
+  background-color: #631604;
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.icon {
+  filter: invert(44%) sepia(13%) saturate(1629%) hue-rotate(91deg)
+    brightness(96%) contrast(94%);
+}
+
+#nav .icon {
+  margin: -5px 3px;
+  filter: none;
+  transition: all 0.3s ease-in-out;
+}
+
+#nav .icon:hover {
+  filter: invert(10%) sepia(57%) saturate(3979%) hue-rotate(3deg)
+    brightness(96%) contrast(98%);
+  transition: all 0.3s ease-in-out;
+}
+
+main {
+  width: 100%;
+  min-height: 1320px;
+  align-items: center;
+  margin: 119px auto 99px auto;
+  max-width: 960px;
+  background-color: #f2f2f2;
+  z-index: -1;
+  padding-bottom: 40px;
+  border-left: 1px solid #98c1a9;
+  border-right: 1px solid #98c1a9;
+}
+
+section {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
+
+#landingImage {
+  display: flex;
+  background-image: url(../images/produce-table.jpg);
+  height: 640px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#welcome,
+#story {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: white;
+  opacity: 90%;
+  width: 60%;
+  max-width: 640px;
+  height: 50%;
+  max-height: 300px;
+  vertical-align: middle;
+  border-radius: 4px;
+  box-shadow: 0px 0px 5px black;
+  padding: 40px;
+}
+
+#welcome h2 {
+  font-size: 2.6em;
+  margin: 0px;
+  text-transform: uppercase;
+}
+
+#welcome h3 {
+  font-size: 1.8em;
+  margin: 0px 0px 10px 0px;
+  line-height: 1.3em;
+  color: black;
+}
+
+button {
+  width: 200px;
+  height: 62px;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  font-family: "Ubuntu", sans-serif;
+  border: none;
+  background-color: #328453;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+#deleteItem {
+  width: 200px;
+  height: 62px;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  font-family: "Ubuntu", sans-serif;
+  border: none;
+  background-color: #328453;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #631604;
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+}
+
+p {
+  margin: 20px;
+  line-height: 1.4;
+}
+
+/* #pantryBG {
+  background-image: url(../images/pantryBG.jpg); 
+} */
+
+#pantryImage {
+  display: flex;
+  background-image: url(../images/produceImage.jpg);
+  height: 400px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+#cartsImage {
+  display: flex;
+  background-image: url(../images/carts2.jpg);
+  height: 400px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+#pantryForm, #listForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: white;
+  opacity: 92%;
+  width: 700px;
+  height: 200px;
+  align-items: center;
+  border-radius: 4px;
+  box-shadow: 0px 0px 5px black;
+  padding: 0px 25px 25px 25px;
+  margin-top: 0px;
+}
+
+#pantryForm h2, #listForm h2 {
+  margin: 20px 0px 0px 0px;
+}
+
+#pantryForm legend, #listForm legend {
+  text-align: left;
+  margin-left: 10px;
+}
+
+#addFood, #addItem {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+#addFood fieldset, #addItem fieldset {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: nowrap;
+  border: 1px solid lightgray;
+}
+
+.formCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+  margin: 5px;
+}
+
+.formRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: -7px 0px;
+}
+
+/* #addBtn {
+  margin-top: 48px;
+  margin-left: 5px;
+} */
+
+#addFood label, #addItem label {
+  font-size: 1.2em;
+  font-family: 'Ubuntu', sans-serif;
+  margin: 0px 10px 0px 0px;
+}
+
+#addFood input, #addFood select, #addItem input, #addItem select {
+  height: 25px;
+}
+
+#addFood #name, #addItem #name, #addFood .category, #addItem .category, #date {
+  width: 160px;
+  height: 30px;
+  font-size: 1.2em;
+  font-family: 'Ubuntu', sans-serif;
+  border: none;
+  border-bottom: 2px solid #328453;
+  background-color: #f2f2f2;
+}
+
+#addFood #quantity, #addItem #quantity {
+  width: 40px;
+  height: 30px;
+  font-size: 1.1em;
+  font-family: 'Ubuntu', sans-serif;
+  border: none;
+  border-bottom: 2px solid #328453;
+  background-color: #f2f2f2;
+}
+
+#addFood button, #addItem button {
+  margin: 30px 0px;
+  width: 80px;
+  height: 20px;
+}
+
+table {
+  width: 75%;
+  margin: 0px auto;
+}
+
+th {
+  font-weight: bolder;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-position: under;
+  color: #328453;
+  padding-bottom: 10px;
+}
+
+tr, td {
+  padding: 10px 30px;
+  text-align: center;
+}
+
+tr:hover {
+  background-color: white;
+  border-radius: 4px;
+}
+
+thead > tr:hover {
+  background-color: #f2f2f2;
+}
+
+.reset {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#pastaImage {
+  display: flex;
+  background-image: url(../images/pasta5.jpg);
+  height: 640px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#story h2 {
+  margin: 5px 0px;
+}
+
+#story p {
+  margin: 10px;
+  font-size: 1.05em;
+}
+
+.describe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.describe article {
+  padding: 30px;
+}
+
+.describe h3,
+#mailingList h3 {
+  color: black;
+  font-size: 1.4em;
+  margin: 0px;
+}
+
+.describe img {
+  width: 275px;
+  border-radius: 50%;
+  margin: 20px;
+  box-shadow: 2px 2px 5px lightgray;
+}
+
+.describe:nth-child(2) {
+  margin-bottom: -60px;
+}
+
+.describe:nth-child(3) {
+  margin-bottom: 0px;
+}
+
+#reviews {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 30px 0px;
+}
+
+.review {
+  width: 30%;
+}
+
+.review p {
+  margin: 10px;
+}
+
+.review .icon {
+  margin: 0px -2px;
+  width: 20px;
+}
+
+#addFood {
+  display: flex;
+}
+
+#addFood fieldset,
+#addItem fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border: thin solid lightgray;
+  width: 100%;
+}
+
+#addFood input, #addFood select, #addItem input, #addItem select {
+  height: 35px;
+  margin: 0px 5px 0px 0px;
+}
+
+#addFood #name,
+#addItem #name {
+  width: 120px;
+}
+
+#addFood #quantity,
+#addItem #quantity {
+  width: 35px;
+}
+
+#addFood button, #addItem button {
+  width: 80px;
+  height: 35px;
+}
+
+table {
+  width: 75%;
+  margin: 0px auto;
+}
+
+th {
+  font-weight: bolder;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-position: under;
+  color: #328453;
+  padding-bottom: 10px;
+}
+
+tr,
+td {
+  padding: 10px 30px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+tr:hover {
+  background-color: white;
+  border-radius: 4px;
+}
+
+thead > tr:hover {
+  background-color: #f2f2f2;
+}
+/* #listForm {
+  background-image: url(../images/carts.jpg);
+  height: 1300px;
+} */
+
+.bwtocolor {
+  width: 200px;
+  border-radius: 50%;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  transition: all 0.25s ease-in-out;
+}
+
+.bwtocolor:hover {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+  transition: all 0.25s ease-in-out;
+  cursor: pointer;
+  box-shadow: 1px 1px 4px black;
+}
+
+#bios {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.bio {
+  width: 20%;
+  display: inline-block;
+  margin: 10px;
+  height: 100%;
+  justify-content: center;
+}
+
+.bio img {
+  display: flex;
+  margin-left: -6px;
+}
+
+.bio p {
+  display: flex;
+  justify-content: space-evenly;
+  width: 175px;
+  font-size: 0.85em;
+  margin-left: 6px;
+}
+
+.bio h3 {
+  margin: 20px 5px -5px 5px;
+  font-size: 1.2em;
+  color: #328453;
+  font-family: "Ubuntu", sans-serif;
+  line-height: 1.2em;
+  transition: all 0.3s ease-in-out;
+}
+
+.bio h3:hover {
+  color: #631604;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.linkedgit {
+  display: flex;
+  justify-content: center;
+}
+
+.linkedgit img {
+  margin: 0px 5px;
+  width: 30px;
+  transition: all 0.3s ease-in-out;
+}
+
+.linkedgit img:hover {
+  background-color: f2f2f2;
+  opacity: 40%;
+  transition: all 0.3s ease-in-out;
+}
+
+/* hr {
+  background-color: green;
+  height: 2px;
+  max-width: 75%;
+} */
+
+footer {
+  background-color: white;
+  position: fixed;
+  height: 100px;
+  width: 74%;
+  max-width: 960px;
+  bottom: 0px;
+  left: 12.95%;
+  right: 12.95%;
+  margin: 0px auto;
+  justify-content: center;
+  padding-top: 20px;
+  border: 1px solid #98c1a9;
+}
+
+footer section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+footer img {
+  margin: 0px 10px 0px 5px;
+}
+
+#mailingList {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#mailingList input {
+  width: 250px;
+  height: 35px;
+  font-size: 1.2em;
+  font-family: "Ubuntu", sans-serif;
+  border: none;
+  border-bottom: 2px solid #328453;
+  background-color: #f2f2f2;
+}
+
+#mailingList button {
+  height: 35px;
+  width: 120px;
+}
+
+#shopping-list {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0px auto;
+  text-align: left;
+  border-top: solid lightblue .5px;
+}
+
+#shopping-list li {
+  cursor: pointer;
+  /* position: relative; */
+  padding: 12px 8px 12px 40px;
+  background: white;
+  font-size: 16px;
+  transition: 0.2s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-bottom: solid lightblue .5px;
+  border-left: solid pink .5px;
+}
+
+/* #shopping-list li:nth-child(odd) {
+  background: #f9f9f9;
+} */
+
+#shopping-list li:hover {
+  background: #ddd;
+}
+
+
