@@ -26,7 +26,7 @@ function makeElement(tagName, parent, textContent, attributes) {
 ///////////////////////// utitlity functions
 function testValidInput(string) {
   // regular expression to test input name for just letters
-  const regex = /^[a-za-z]+$/;
+  const regex = /^[a-zA-Z\s]+$/;
   const testReg = regex.exec(string);
   return testReg;
 }
