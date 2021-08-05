@@ -245,29 +245,20 @@ p {
 #pantryForm, #listForm {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   background-color: white;
   opacity: 90%;
   width: 700px;
-  /* max-width: 600px; */
   height: 250px;
-  /* max-height: 200px; */
   align-items: center;
   border-radius: 4px;
   box-shadow: 0px 0px 5px black;
-  padding: 20px;
+  padding: 0px 25px 25px 25px;
+  margin-top: 0px;
 }
 
 #pantryForm h2, #listForm h2 {
-margin: 20px 0px 0px 0px;
-}
-
-#pantryForm fieldset, #listForm fieldset{
-  display: flex;
-  flex-wrap: nowrap;
-  padding: 10px;
-  align-items: center;
-  border: 1px solid lightgray;
+  margin: 20px 0px 0px 0px;
 }
 
 #pantryForm legend, #listForm legend {
@@ -277,39 +268,90 @@ margin: 20px 0px 0px 0px;
 
 #addFood, #addItem {
   display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
 #addFood fieldset, #addItem fieldset {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  /* width: 100%; */
+  flex-direction: row;
+  justify-content: space-evenly;
   align-items: center;
-  margin-bottom: 40px;
+  flex-wrap: nowrap;
+  /* padding: -50px 0px; */
+  border: 1px solid lightgray;
+  /* margin-bottom: 40px; */
+  /* width: 100%; */
+}
+
+.formCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+  margin: 5px;
+}
+
+.formRow {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin: 7px 0px;
   width: 100%;
+}
+
+#addBtn {
+  margin-top: 48px;
+  /* margin-left: 5px; */
+}
+
+#addFood label, #addItem label {
+  font-size: 1.2em;
+  font-family: 'Ubuntu', sans-serif;
+  margin: 0px 10px 0px 0px;
 }
 
 #addFood input, #addFood select, #addItem input, #addItem select {
   height: 25px;
-  margin: 0px 10px 0px 3px;
+  /* margin: 5px; */
   /* padding-left: 8px; */
 }
 
-#addFood #name, #addItem #name {
-  width: 100px;
+#addFood #name, #addItem #name, #addFood .category, #addItem .category, #date {
+  width: 160px;
+  height: 30px;
+  font-size: 1.2em;
+  font-family: 'Ubuntu', sans-serif;
+  border: none;
+  border-bottom: 2px solid #328453;
+  background-color: #f2f2f2;
 }
+
+/* #date {
+  width: 160px;
+  height: 25px;
+  font-size: 1.2em;
+  font-family: 'Ubuntu', sans-serif;
+  border: none;
+  border-bottom: 2px solid #328453;
+  background-color: #f2f2f2;
+} */
 
 #addFood #quantity, #addItem #quantity {
-  width: 35px;
-}
-
-#date {
-  width: 120px;
+  width: 40px;
+  height: 30px;
+  font-size: 1.1em;
+  font-family: 'Ubuntu', sans-serif;
+  border: none;
+  border-bottom: 2px solid #328453;
+  background-color: #f2f2f2;
 }
 
 #addFood button, #addItem button {
   margin: 30px 0px;
   width: 80px;
-  height: 35px;
+  height: 20px;
 }
 
 table {
@@ -424,18 +466,15 @@ thead > tr:hover {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
   border: thin solid lightgray;
   width: 100%;
 }
 
-#addFood input,
-#addFood select,
-#addItem input,
-#addItem select {
-  height: 25px;
-  margin: 0px 15px 0px 5px;
-  padding-left: 8px;
+#addFood input, #addFood select, #addItem input, #addItem select {
+  height: 35px;
+  margin: 0px 5px 0px 0px;
+  /* padding-left: 8px; */
 }
 
 #addFood #name,
@@ -448,11 +487,10 @@ thead > tr:hover {
   width: 35px;
 }
 
-#addFood button,
-#addItem button {
-  margin: 30px 0px;
+#addFood button, #addItem button {
+  /* margin: 30px 0px; */
   width: 80px;
-  height: 40px;
+  height: 35px;
 }
 
 table {
