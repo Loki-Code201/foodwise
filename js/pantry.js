@@ -1,3 +1,4 @@
+"use strict";
 /////////////// Utility functions ////////////////////
 
 function PantryItem(name, quantity, expiration, category) {
