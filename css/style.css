@@ -668,6 +668,7 @@ footer p {
   width: 50%;
   margin: 0px auto;
   text-align: left;
+  border-top: solid lightblue .5px;
 }
 
 #shopping-list li {
@@ -677,11 +678,12 @@ footer p {
   background: white;
   font-size: 16px;
   transition: 0.2s;
-  /* -webkit-user-select: none;
+  -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none; */
+  user-select: none;
   border-bottom: solid lightblue .5px;
+  border-left: solid pink .5px;
 }
 
 /* #shopping-list li:nth-child(odd) {
