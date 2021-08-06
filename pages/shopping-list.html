@@ -2,105 +2,92 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>foodWise</title>
-  <link rel="stylesheet" href="../css/reset.css">
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
-  <script defer src="../js/shoppinglist.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>foodWise</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <script defer src="../js/app.js"></script>
+    <script defer src="../js/shoppinglist.js"></script>
 </head>
 
 <body>
-  <header>
-    <section>
-      <a href="../index.html">
-        <!-- <h1>foodWise</h1> -->
-        <img id="logo" src="../images/logo.png" alt="foodWise">
-      </a>
-      <ul id="nav">
-        <li class="hover-underline-animation"><a href="../index.html"><img class="icon"
-              src="../images/icons/home-smile-line.png" alt="home">Home</a></li>
-        <li class="hover-underline-animation"><a href="pantry.html"><img class="icon"
-              src="../images/icons/door-open-line.png" alt="pantry">Pantry</a></li>
-        <li class="hover-underline-animation"><a href="shopping-list.html"><img class="icon"
-              src="../images/icons/checkbox-multiple-line.png" alt="shopping list">Shopping List</a></li>
-        <li class="hover-underline-animation"><a href="about.html"><img class="icon"
-              src="../images/icons/group-line.png" alt="About">About</a></li>
-      </ul>
-    </section>
-  </header>
-  <main>
-    <section id="cartsImage">
-      <article id="listForm">
-        <h2>Shopping List</h2>
-        <form id="addItem">
-          <fieldset>
-            <legend>
-              <h3>Add to Shopping List</h3>
-            </legend>
+    <header>
+        <section>
+            <a href="../index.html">
+                <!-- <h1>foodWise</h1> -->
+                <img id="logo" src="../images/logo.png" alt="foodWise">
+            </a>
+            <ul id="nav">
+                <li class="hover-underline-animation"><a href="../index.html"><img class="icon" src="../images/icons/home-smile-line.png" alt="home">Home</a></li>
+                <li class="hover-underline-animation"><a href="pantry.html"><img class="icon" src="../images/icons/door-open-line.png" alt="pantry">Pantry</a></li>
+                <li class="hover-underline-animation"><a href="shopping-list.html"><img class="icon" src="../images/icons/checkbox-multiple-line.png" alt="shopping list">Shopping List</a></li>
+                <li class="hover-underline-animation"><a href="about.html"><img class="icon" src="../images/icons/group-line.png" alt="About">About</a></li>
+            </ul>
+        </section>
+    </header>
+    <main>
+        <section id="cartsImage">
+            <article id="listForm">
+                <h2>Shopping List</h2>
+                <form id="addItem">
+                    <fieldset>
+                        <legend>
+                            <h3>Add to Shopping List</h3>
+                        </legend>
 
-            <label for="food">Item</label>
-            <input id="name" type="text" name="food" value="orange">
+                        <label for="food">Item</label>
+                        <input id="name" type="text" name="food" value="orange">
 
-            <label for="quantity">Quantity</label>
-            <input id="quantity" type="number" name="quantity" value="1">
+                        <label for="quantity">Quantity</label>
+                        <input id="quantity" type="number" name="quantity" value="1">
+                        <button type="submit">Add</button>
+                    </fieldset>
+                </form>
+            </article>
+        </section>
+        <section>
+            <table id="table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody2">
 
-            <label for="category">Category</label>
-            <select class="category" name="category">
-              <option value="Fruit">Fruit</option>
-              <option value="Vegetables">Vegetables</option>
-              <option value="Meat">Meat</option>
-              <option value="Fish">Fish</option>
-              <option value="Grains">Grains</option>
-              <option value="Deli">Deli</option>
-              <option value="Pasta">Pasta</option>
-              <option value="Cannedgoods">Canned Goods</option>
-              <option value="Dairy">Dairy</option>
-              <option value="Beverages">Beverages</option>
-              <option value="Snacks">Snacks</option>
-            </select>
-            <button type="submit">Add</button>
-          </fieldset>
-        </form>
-      </article>
-    </section>
-    <section>
-      <ul id="shopping-list">
-        <li></li>
-      </ul>
-      <table>
-        <thead></thead>
-      </table>
-    </section>
-    <div>
-      <img id="" src="" width="">
-      <p class=""><a href=""></a></p>
-    </div>
-    </section>
-  </main>
-  <footer>
-    <section>
-      <article id="mailingList">
-        <h3>Stay In Touch</h3><img class="icon" src="../images/icons/arrow-right-line.png" alt="arrow right">
-        <form>
-          <fieldset>
-            <label>
-              <input name="email" type="text" placeholder="email">
-            </label>
-            <a href="https://github.com/Loki-Code201/foodwise" target=_blank"><button id="signUp" type="submit">Sign Up</button></a>
-          </fieldset>
-        </form>
-      </article>
-      <article>
-        <p>&#169;2021 Code Fellows, Inc. | foodWise | <a href="about.html">Team Loki</a></p>
-      </article>
-    </section>
-  </footer>
+                </tbody>
+
+            </table>
+        </section>
+        <div class="reset">
+            <button type="submit" id="resetHistory">Clear List</button>
+        </div>
+    </main>
+    <footer>
+        <section>
+            <article id="mailingList">
+                <h3>Stay In Touch</h3><img class="icon" src="../images/icons/arrow-right-line.png" alt="arrow right">
+                <form>
+                    <fieldset>
+                        <label>
+                            <input name="email" type="text" placeholder="email">
+                        </label>
+                        <a href="https://github.com/Loki-Code201/foodwise" target=_blank"><button id="signUp" type="submit">Sign Up</button></a>
+                    </fieldset>
+                </form>
+            </article>
+            <article>
+                <p>&#169;2021 Code Fellows, Inc. | foodWise | <a href="about.html">Team Loki</a></p>
+            </article>
+        </section>
+    </footer>
 </body>
 
 </html>

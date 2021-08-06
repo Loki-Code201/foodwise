@@ -24,14 +24,10 @@
                 <img id="logo" src="../images/logo.png" alt="foodWise">
             </a>
             <ul id="nav">
-                <li class="hover-underline-animation"><a href="../index.html"><img class="icon"
-                            src="../images/icons/home-smile-line.png" alt="home">Home</a></li>
-                <li class="hover-underline-animation"><a href="pantry.html"><img class="icon"
-                            src="../images/icons/door-open-line.png" alt="pantry">Pantry</a></li>
-                <li class="hover-underline-animation"><a href="shopping-list.html"><img class="icon"
-                            src="../images/icons/checkbox-multiple-line.png" alt="shopping list">Shopping List</a></li>
-                <li class="hover-underline-animation"><a href="about.html"><img class="icon"
-                            src="../images/icons/group-line.png" alt="About">About</a></li>
+                <li class="hover-underline-animation"><a href="../index.html"><img class="icon" src="../images/icons/home-smile-line.png" alt="home">Home</a></li>
+                <li class="hover-underline-animation"><a href="pantry.html"><img class="icon" src="../images/icons/door-open-line.png" alt="pantry">Pantry</a></li>
+                <li class="hover-underline-animation"><a href="shopping-list.html"><img class="icon" src="../images/icons/checkbox-multiple-line.png" alt="shopping list">Shopping List</a></li>
+                <li class="hover-underline-animation"><a href="about.html"><img class="icon" src="../images/icons/group-line.png" alt="About">About</a></li>
             </ul>
         </section>
     </header>
@@ -45,40 +41,43 @@
                             <h3>Add to Pantry</h3>
                         </legend>
                         <!-- <div class="formCol"> -->
-                            <div class="formRow">
-                                <label for="food">Item</label>
-                                <input id="name" type="text" name="food" value="apple">
+                        <div class="formRow">
+                            <label for="food">Item</label>
+                            <input id="name" type="text" name="food" value="apple">
                             <!-- </div>
                             <div class="formRow"> -->
-                                <label for="quantity">Quantity</label>
-                                <input id="quantity" type="number" name="quantity" value="1">
-                            </div>
+                            <label for="quantity">Quantity</label>
+                            <input id="quantity" type="number" name="quantity" value="1">
+                        </div>
                         <!-- </div> -->
                         <!-- <div class="formCol"> -->
-                            <div class="formRow">
-                                <label for="expiration">Expire Date</label>
-                                <input id="date" type="date" name="expiration" value="2021-08-01">
+                        <div class="formRow">
+                            <label for="expiration">Expire Date</label>
+                            <input id="date" type="date" name="expiration" value="2021-08-01">
                             <!-- </div>
                             <div class="formRow"> -->
-                                <label for="category">Category</label>
-                                <select class="category" name="category">
-                                    <option value="fruit">Fruits</option>
-                                    <option value="vegetable">Vegetables</option>
-                                    <option value="meat">Meats</option>
-                                    <option value="fish">Fish</option>
-                                    <option value="grains">Grains</option>
-                                    <option value="deli">Deli</option>
-                                    <option value="pasta">Pasta</option>
-                                    <option value="cannedgoods">Canned Goods</option>
-                                    <option value="dairy">Dairy</option>
-                                    <option value="beverage">Beverages</option>
-                                    <option value="snacks">Snacks</option>
-                                </select>
+                            <label for="category">Category</label>
+                            <select class="category" name="category">
+                                <option value="fruit">Fruit</option>
+                                <option value="vegetables">Vegetables</option>
+                                <option value="meat">Meat</option>
+                                <option value="seafood">Seafood</option>
+                                <option value="plant proteins">Plant Proteins</option>
+                                <option value="grains">Grains</option>
+                                <option value="deli">Deli</option>
+                                <option value="pasta">Pasta</option>
+                                <option value="canned goods">Canned Goods</option>
+                                <option value="bulk">Bulk</option>
+                                <option value="nutrition">Nutrition</option>
+                                <option value="beverages">Beverages</option>
+                                <option value="snacks">Snacks</option>
+                                <option value="household">Household</option>
+                            </select>
                             <!-- </div> -->
-                        <!-- </div>
+                            <!-- </div>
                         <div class="formCol">
                             <div id="addBtn"> -->
-                                <button type="submit">Add</button>
+                            <button type="submit">Add</button>
                             <!-- </div> -->
                         </div>
                     </fieldset>
@@ -101,7 +100,7 @@
 
         </table>
         <div class="reset">
-            <button type="submit" id="resetHistory">Reset Local Storage</button>
+            <button type="submit" id="resetHistory">Clear Pantry</button>
         </div>
     </main>
     <footer>
@@ -113,7 +112,7 @@
                         <label>
                             <input name="email" type="text" placeholder="email">
                         </label>
-                        <a href="https://github.com/Loki-Code201/foodwise" target=_blank"><button id="signUp" type="submit">Sign Up</button></a>
+                        <button id="signUp"><a href="https://github.com/Loki-Code201/foodwise" target="_blank">Sign Up</a></button>
                     </fieldset>
                 </form>
             </article>

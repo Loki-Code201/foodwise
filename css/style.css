@@ -135,9 +135,9 @@ ul {
 
 main {
   width: 100%;
-  min-height: 1320px;
+  min-height: 1330px;
   align-items: center;
-  margin: 119px auto 99px auto;
+  margin: 119px auto 79px auto;
   max-width: 960px;
   background-color: #f2f2f2;
   z-index: -1;
@@ -190,7 +190,7 @@ section {
   color: black;
 }
 
-button {
+button, .button {
   width: 200px;
   height: 62px;
   text-transform: uppercase;
@@ -218,7 +218,7 @@ button {
   transition: all 0.3s ease-in-out;
 }
 
-button:hover {
+button:hover, .button:hover {
   background-color: #631604;
   cursor: pointer;
   transform: scale(1.05);
@@ -323,7 +323,7 @@ p {
 }
 
 #addFood #name, #addItem #name, #addFood .category, #addItem .category, #date {
-  width: 160px;
+  width: 170px;
   height: 30px;
   font-size: 1.2em;
   font-family: 'Ubuntu', sans-serif;
@@ -342,10 +342,10 @@ p {
   background-color: #f2f2f2;
 }
 
-#addFood button, #addItem button {
+#addFood button, #addItem button, .button {
   margin: 30px 0px;
   width: 80px;
-  height: 20px;
+  height: 35px;
 }
 
 table {
@@ -479,10 +479,10 @@ thead > tr:hover {
   width: 35px;
 }
 
-#addFood button, #addItem button {
+/* #addFood button, #addItem button, .button {
   width: 80px;
   height: 35px;
-}
+} */
 
 table {
   width: 75%;
@@ -510,13 +510,17 @@ tr:hover {
   border-radius: 4px;
 }
 
-thead > tr:hover {
+/* thead > tr:hover {
   background-color: #f2f2f2;
-}
+} */
 /* #listForm {
   background-image: url(../images/carts.jpg);
   height: 1300px;
 } */
+
+.button {
+  margin: 5px 0px -5px 0px;
+}
 
 .bwtocolor {
   width: 200px;
@@ -601,7 +605,7 @@ thead > tr:hover {
 footer {
   background-color: white;
   position: fixed;
-  height: 100px;
+  height: 80px;
   width: 74%;
   max-width: 960px;
   bottom: 0px;
@@ -609,7 +613,7 @@ footer {
   right: 12.95%;
   margin: 0px auto;
   justify-content: center;
-  padding-top: 20px;
+  padding-top: 15px;
   border: 1px solid #98c1a9;
 }
 
@@ -622,6 +626,10 @@ footer section {
 
 footer img {
   margin: 0px 10px 0px 5px;
+}
+
+footer p {
+  margin: 10px;
 }
 
 #mailingList {
@@ -644,6 +652,14 @@ footer img {
 #mailingList button {
   height: 35px;
   width: 120px;
+}
+
+#mailingList a {
+  color: white;
+}
+
+#mailingList a:hover {
+  color: white;
 }
 
 #shopping-list {
