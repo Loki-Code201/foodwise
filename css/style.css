@@ -75,7 +75,9 @@ header section {
 }
 
 #logo {
-  height: 70px;
+  height: 60px;
+  border-radius: 10px;
+  box-shadow: 20px 30px 10px #343d47;
 }
 
 ul {
@@ -693,5 +695,3 @@ footer p {
 #shopping-list li:hover {
   background: #ddd;
 }
-
-
