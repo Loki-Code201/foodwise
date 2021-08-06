@@ -75,9 +75,9 @@ header section {
 }
 
 #logo {
-  height: 60px;
-  border-radius: 10px;
-  box-shadow: 20px 30px 10px #343d47;
+  height: 70px;
+  border-radius: 5px;
+  /* box-shadow: 20px 30px 10px #343d47; */
 }
 
 ul {
@@ -515,13 +515,17 @@ tr:hover {
 /* thead > tr:hover {
   background-color: #f2f2f2;
 } */
-/* #listForm {
-  background-image: url(../images/carts.jpg);
-  height: 1300px;
-} */
 
 .button {
-  margin: 5px 0px -5px 0px;
+  margin: 5px 3px -5px 3px;
+  background-color: white;
+  color: black;
+  border: 1px solid lightgray;
+}
+
+.button:hover {
+  background-color: #328453;
+  color: white;
 }
 
 .bwtocolor {
