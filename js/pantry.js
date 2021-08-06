@@ -1,6 +1,6 @@
 "use strict";
 /////////////// Utility functions ////////////////////
-
+// add parameters for inPantry and shoppingList
 function PantryItem(name, quantity, expiration, category) {
   this.name = name;
   this.quantity = quantity;
@@ -105,7 +105,10 @@ function updateDuplicateStorageItem(quantityBefore, array) {
 
   // add the new item to local storage with the updated quantity
   const newObj = new PantryItem(...array);
-  newObj.shoppingList = true;
+  console.log(newObj);
+  if (array[5] === true) {
+    newObj.shoppingList = true;
+  }
   newObj.inPantry = true;
 
   updatedStorage.push(newObj); // push a new PantryItem with the quanitities added together
@@ -172,6 +175,7 @@ function renderTableButton(value, className, fn) {
 function renderFromStorage(storageData) {
   // creates a new array based on `storageData`s objects' values'
   const rehydratedValues = Array.from(storageData, (x) => Object.values(x));
+  console.log(rehydratedValues);
   renderTableRow(rehydratedValues); // TODO: change to the values from rehydratedObj
 }
 
@@ -237,7 +241,11 @@ function main() {
   // instantly render data from local storage
   const storageData = getLocalStorage("pantry");
   if (storageData) {
+    const rehydratedValues = Array.from(storageData, (x) => Object.values(x));
+    console.log(rehydratedValues);
+    // if (array[4] === true) {
     renderFromStorage(storageData);
+    // }
   }
 
   const pantryObjArray = []; // ends up in local storage

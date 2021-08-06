@@ -4,7 +4,7 @@
 function ListItem(name, quantity, expiration, category) {
   this.name = name;
   this.quantity = quantity;
-  this.expiration = expiration;
+  this.expiration = expiration || false;
   this.category = category;
   this.inPantry = false;
   this.shoppingList = false;
@@ -51,10 +51,13 @@ function setLocalStorage(name, array) {
 function deleteItemFromStorage(array) {
   // deletes an obj from Local Storage based off the name property
   const currentLocalStorage = getLocalStorage("pantry");
+  console.log(currentLocalStorage);
+  console.log(array[0]);
 
   const filtered = currentLocalStorage.filter(function (el) {
     return el.name != array[0];
   });
+  console.log(filtered);
   return filtered; // returns the new filtered array
 }
 
@@ -81,11 +84,14 @@ function updateDuplicateStorageItem(quantityBefore, array) {
 
   // get the sum of the previous quantity and the new quantity entered
   array[1] = parseInt(array[1]) + parseInt(quantityBefore);
-
+  console.log(array[1]);
   // add the new item to local storage with the updated quantity
-  updatedQuantity.push(new ListItem(...array)); // push a new PantryItem with the quanitities added together
+  let newObj = new ListItem(...array);
+  newObj.shoppingList = true;
+  updatedQuantity.push(newObj); // push a new PantryItem with the quanitities added together
   setLocalStorage("pantry", updatedQuantity);
-  renderFromStorage(getLocalStorage("pantry"));
+  let currentStorage = getLocalStorage("pantry");
+  renderFromStorage(currentStorage);
 
   return; // ???
 }
@@ -94,42 +100,17 @@ function updateDuplicateStorageItem(quantityBefore, array) {
 // table stuff
 // values parameter is an array
 function renderTableRow(values) {
-  console.log(getLocalStorage("pantry"));
-  console.log(values);
   const tbodyElem = document.getElementById("tbody2");
-  tbodyElem.innerHTML = "";
+  // tbodyElem.innerHTML = "";
 
   const trElem = makeElement("tr", tbodyElem);
   const thElem = makeElement("th", trElem);
   thElem.appendChild(renderTableButton("Delete", "button", deleteItem));
 
   // only render the first 3 values
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 2; i++) {
     makeElement("td", trElem, values[i]);
   }
-
-  //   for (const value of values) {
-  //     makeElement("td", trElem, value);
-  //   }
-
-  //   for (const array of values) {
-  //     // only render if the property shopping list is True
-  //     console.log(array);
-  //     if (array[4] === true) {
-  //       // remove expiration date from array
-  //       array.splice(2, 1);
-  //       // remove last 2 properties of the obj so it doesn't render. There is definitely a better way to do this
-  //       array.pop();
-  //       array.pop();
-  //       const trElem = makeElement("tr", tbodyElem);
-  //       const thElem = makeElement("th", trElem);
-  //       thElem.appendChild(renderTableButton("Delete", "button", deleteItem));
-
-  //       for (const value of array) {
-  //         makeElement("td", trElem, value);
-  //       }
-  //     }
-  //   }
 }
 
 function renderTableButton(value, className, fn) {
@@ -142,17 +123,14 @@ function renderTableButton(value, className, fn) {
 }
 
 function renderFromStorage(storageData) {
-  // creates a new array based on `storageData`s objects' values'
-  console.log(storageData);
   const tbodyElem = document.getElementById("tbody2");
   tbodyElem.innerHTML = "";
+  console.log(storageData);
+  // creates a new array based on `storageData`s objects' values'
   for (const obj of storageData) {
-    console.log(obj);
     if (obj.shoppingList === true) {
       const test = Object.values(obj);
-      console.log(test);
       // const rehydratedValues = Array.from(storageData, (x) => Object.values(x));
-      // console.log(rehydratedValues);
       renderTableRow(test);
     }
   }
@@ -192,6 +170,11 @@ function formCb(event) {
     values.push(pair[1].trim().toLowerCase()); // trims any extra spaces before or after the input
   }
 
+  let theDate = new Date();
+  let dateFormat = theDate.toISOString().split("T")[0];
+
+  values.splice(2, 0, dateFormat);
+
   // test regex against product name
   if (!testValidInput(values[0])) {
     alert("bad input"); // TODO: change to show underneath the Input element
@@ -202,15 +185,22 @@ function formCb(event) {
   if (currentLocalStorage) {
     const duplicate = checkForDuplicateStorageItem(currentLocalStorage, values);
     if (duplicate) {
+      console.log(duplicate);
+      console.log(values);
       updateDuplicateStorageItem(duplicate, values);
     } else {
-      currentLocalStorage.push(new ListItem(...values));
+      const newObj = new ListItem(...values);
+      newObj.shoppingList = true;
+      newObj.inPantry = false;
+      currentLocalStorage.push(newObj); // `this` refers to the bound `pantryObjArray` array
+      // currentLocalStorage.push(new ListItem(...values));
       setLocalStorage("pantry", currentLocalStorage);
     }
   }
   // no local storage yet so set it up
   const newObj = new ListItem(...values);
   newObj.shoppingList = true;
+  newObj.inPantry = false;
   this.push(newObj); // `this` refers to the bound `pantryObjArray` array
 
   setLocalStorage("pantry", this);
