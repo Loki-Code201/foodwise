@@ -213,7 +213,9 @@ function formCb(event) {
       values.push(duplicate[1]);
       updateDuplicateStorageItem(duplicate, values);
     } else {
-      currentLocalStorage.push(new PantryItem(...values));
+      const newObj = new PantryItem(...values);
+      newObj.inPantry = true;
+      currentLocalStorage.push(newObj);
       setLocalStorage("pantry", currentLocalStorage);
     }
   } else {
