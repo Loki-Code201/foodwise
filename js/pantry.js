@@ -1,4 +1,12 @@
 "use strict";
+
+let newDate = new Date();
+let today = newDate.getDate();
+console.log(newDate);
+
+let expDate = document.getElementById('date');
+expDate.setAttribute('value', today);
+
 /////////////// Utility functions ////////////////////
 // add parameters for inPantry and shoppingList
 function PantryItem(name, quantity, expiration, category) {
