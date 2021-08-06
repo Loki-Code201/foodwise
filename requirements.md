@@ -35,7 +35,6 @@ It's a way to save from a food perspective and a financial perspective. It promo
 
 ### Stretch
 **What stretch goals are you going to aim for?**
-    - Pantry page JS: click/tap item once to reduce quantity by one
     - Shopping List page
 
 ***
@@ -47,6 +46,8 @@ List the functionality of your product. This will consist of tasks such as the f
 
 ### Data Flow
 *Describe the flow of data in your application. Write out what happens from the time the user begins using the app to the time the user is done with the app. Think about the “Happy Path” of the application. Describe through visuals and text what requests are made, and what data is processed, in addition to any other details about how the user moves through the site.*
+
+https://github.com/code-heros-quest/battle-for-the-kingdom
 
 (Will be added after we have a working prototype)
 ***
