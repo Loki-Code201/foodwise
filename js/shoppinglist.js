@@ -6,6 +6,8 @@ function ListItem(name, quantity, expiration, category) {
   this.quantity = quantity;
   this.expiration = expiration;
   this.category = category;
+  this.inPantry = false;
+  this.shoppingList = false;
 }
 
 // attributes is an object  = {src: "", alt: ""}
@@ -92,17 +94,42 @@ function updateDuplicateStorageItem(quantityBefore, array) {
 // table stuff
 // values parameter is an array
 function renderTableRow(values) {
-  const tbodyElem = document.getElementById("tbody");
+  console.log(getLocalStorage("pantry"));
+  console.log(values);
+  const tbodyElem = document.getElementById("tbody2");
   tbodyElem.innerHTML = "";
-  for (const array of values) {
-    const trElem = makeElement("tr", tbodyElem);
-    const thElem = makeElement("th", trElem);
-    thElem.appendChild(renderTableButton("Delete", "button", deleteItem));
 
-    for (const value of array) {
-      makeElement("td", trElem, value);
-    }
+  const trElem = makeElement("tr", tbodyElem);
+  const thElem = makeElement("th", trElem);
+  thElem.appendChild(renderTableButton("Delete", "button", deleteItem));
+
+  // only render the first 3 values
+  for (let i = 0; i < 3; i++) {
+    makeElement("td", trElem, values[i]);
   }
+
+  //   for (const value of values) {
+  //     makeElement("td", trElem, value);
+  //   }
+
+  //   for (const array of values) {
+  //     // only render if the property shopping list is True
+  //     console.log(array);
+  //     if (array[4] === true) {
+  //       // remove expiration date from array
+  //       array.splice(2, 1);
+  //       // remove last 2 properties of the obj so it doesn't render. There is definitely a better way to do this
+  //       array.pop();
+  //       array.pop();
+  //       const trElem = makeElement("tr", tbodyElem);
+  //       const thElem = makeElement("th", trElem);
+  //       thElem.appendChild(renderTableButton("Delete", "button", deleteItem));
+
+  //       for (const value of array) {
+  //         makeElement("td", trElem, value);
+  //       }
+  //     }
+  //   }
 }
 
 function renderTableButton(value, className, fn) {
@@ -116,8 +143,19 @@ function renderTableButton(value, className, fn) {
 
 function renderFromStorage(storageData) {
   // creates a new array based on `storageData`s objects' values'
-  const rehydratedValues = Array.from(storageData, (x) => Object.values(x));
-  renderTableRow(rehydratedValues); // TODO: change to the values from rehydratedObj
+  console.log(storageData);
+  const tbodyElem = document.getElementById("tbody2");
+  tbodyElem.innerHTML = "";
+  for (const obj of storageData) {
+    console.log(obj);
+    if (obj.shoppingList === true) {
+      const test = Object.values(obj);
+      console.log(test);
+      // const rehydratedValues = Array.from(storageData, (x) => Object.values(x));
+      // console.log(rehydratedValues);
+      renderTableRow(test);
+    }
+  }
 }
 
 function deleteItemFromTable(event) {
@@ -169,12 +207,13 @@ function formCb(event) {
       currentLocalStorage.push(new ListItem(...values));
       setLocalStorage("pantry", currentLocalStorage);
     }
-  } else {
-    // no local storage yet so set it up
-    this.push(new ListItem(...values)); // `this` refers to the bound `pantryObjArray` array
-
-    setLocalStorage("pantry", this);
   }
+  // no local storage yet so set it up
+  const newObj = new ListItem(...values);
+  newObj.shoppingList = true;
+  this.push(newObj); // `this` refers to the bound `pantryObjArray` array
+
+  setLocalStorage("pantry", this);
   renderFromStorage(getLocalStorage("pantry"));
 }
 
@@ -187,8 +226,8 @@ function main() {
     renderFromStorage(storageData);
   }
 
-  const pantryObjArray = []; // ends up in local storage
-  form.addEventListener("submit", formCb.bind(pantryObjArray));
+  const shoppingListArray = []; // ends up in local storage
+  form.addEventListener("submit", formCb.bind(shoppingListArray));
 
   // DEVELOPMENT purposes only
   const resetButton = document.getElementById("resetHistory");

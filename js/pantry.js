@@ -6,6 +6,8 @@ function PantryItem(name, quantity, expiration, category) {
   this.quantity = quantity;
   this.expiration = expiration;
   this.category = category;
+  this.inPantry = false;
+  this.shoppingList = false;
 }
 
 // attributes is an object  = {src: "", alt: ""}
@@ -31,6 +33,20 @@ function testValidInput(string) {
   return testReg;
 }
 
+function getSelectedRow(event) {
+  const currentItemToDelete = event.target.parentNode.parentNode;
+  const currentItemTDs = currentItemToDelete.children;
+
+  // convert the HTMLCollection to an array
+  const newArray = [...currentItemTDs];
+  // remove the first item out of the array (this is the button in the table which we don't need right here)
+  newArray.shift();
+
+  // creates a new array based on `newArray`s innerHTML values on exch td
+  const itemValues = Array.from(newArray, (x) => x.innerHTML);
+  return itemValues;
+}
+
 ////////////// local storage functions //////////////////
 
 function getLocalStorage(name) {
@@ -47,7 +63,7 @@ function setLocalStorage(name, array) {
 }
 
 function deleteItemFromStorage(array) {
-  // deletes an obj from Local Storage based off the name property
+  // finds the duplicate obj from Local Storage based off the name property
   const currentLocalStorage = getLocalStorage("pantry");
 
   const filtered = currentLocalStorage.filter(function (el) {
@@ -57,16 +73,20 @@ function deleteItemFromStorage(array) {
 }
 
 function checkForDuplicateStorageItem(currentLocalStorage, array) {
+  console.log(currentLocalStorage);
+  console.log(array);
   if (currentLocalStorage) {
     // check for duplicate item names
     let quantityBefore;
+    let inShoppingList;
     const checkDuplicate = currentLocalStorage.some((elem) => {
       quantityBefore = elem.quantity;
+      inShoppingList = elem.shoppingList;
+      console.log(elem);
       return elem.name.toLowerCase() === array[0].toLowerCase();
     });
-
     if (checkDuplicate) {
-      return quantityBefore;
+      return [quantityBefore, inShoppingList];
     }
     return false;
   }
@@ -75,17 +95,39 @@ function checkForDuplicateStorageItem(currentLocalStorage, array) {
 function updateDuplicateStorageItem(quantityBefore, array) {
   // remove from local storage to update the quantity then add back
   // since the input was a duplicate, delete from local storage
-  const updatedQuantity = deleteItemFromStorage(array);
+  console.log(array);
+  const updatedStorage = deleteItemFromStorage(array);
+  console.log(updatedStorage);
 
+  console.log(...array);
   // get the sum of the previous quantity and the new quantity entered
   array[1] = parseInt(array[1]) + parseInt(quantityBefore);
 
   // add the new item to local storage with the updated quantity
-  updatedQuantity.push(new PantryItem(...array)); // push a new PantryItem with the quanitities added together
-  setLocalStorage("pantry", updatedQuantity);
+  const newObj = new PantryItem(...array);
+  newObj.shoppingList = true;
+
+  updatedStorage.push(newObj); // push a new PantryItem with the quanitities added together
+
+  console.log(updatedStorage);
+  setLocalStorage("pantry", updatedStorage);
   renderFromStorage(getLocalStorage("pantry"));
 
   return; // ???
+}
+
+function addToShoppingList(event) {
+  const rowValues = getSelectedRow(event);
+  const updatedStorage = deleteItemFromStorage(rowValues);
+  console.log(rowValues);
+
+  // add the new item to local storage with the updated quantity
+  const newObj = new PantryItem(...rowValues);
+  newObj.shoppingList = true;
+  updatedStorage.push(newObj); // push a new PantryItem with the quanitities added together
+
+  setLocalStorage("pantry", updatedStorage);
+  // renderFromStorage(getLocalStorage("pantry"));
 }
 
 ////////////////// rendering functions
@@ -95,12 +137,23 @@ function renderTableRow(values) {
   const tbodyElem = document.getElementById("tbody");
   tbodyElem.innerHTML = "";
   for (const array of values) {
-    const trElem = makeElement("tr", tbodyElem);
-    const thElem = makeElement("th", trElem);
-    thElem.appendChild(renderTableButton("Delete", "button", deleteItem));
+    // only render if inPantry property is true
+    // stop checking the array index, check the obj property!!!!!!!!!!!!!!!!!!!!!!!!!11
+    if (array[4] === true) {
+      console.log(array);
+      // remove last two properties of the obj so it doesn't render. There is definitely a better way to do this
+      array.pop();
+      array.pop();
+      const trElem = makeElement("tr", tbodyElem);
+      const thElem = makeElement("th", trElem);
+      thElem.appendChild(renderTableButton("Delete", "button", deleteItem));
+      thElem.appendChild(
+        renderTableButton("Add to Shopping List", "button", addToShoppingList)
+      );
 
-    for (const value of array) {
-      makeElement("td", trElem, value);
+      for (const value of array) {
+        makeElement("td", trElem, value);
+      }
     }
   }
 }
@@ -128,18 +181,9 @@ function deleteItemFromTable(event) {
 
 function deleteItem(event) {
   deleteItemFromTable(event);
+  const rowValues = getSelectedRow(event);
 
-  const currentItemToDelete = event.target.parentNode.parentNode;
-  const currentItemTDs = currentItemToDelete.children;
-
-  // convert the HTMLCollection to an array
-  const newArray = [...currentItemTDs];
-  // remove the first item out of the array (this is the button in the table which we don't need right here)
-  newArray.shift();
-
-  // creates a new array based on `newArray`s innerHTML values on exch td
-  const itemValues = Array.from(newArray, (x) => x.innerHTML);
-  setLocalStorage("pantry", deleteItemFromStorage(itemValues));
+  setLocalStorage("pantry", deleteItemFromStorage(rowValues));
 }
 
 //////////////// Listeners ////////////////////////
@@ -164,6 +208,9 @@ function formCb(event) {
   if (currentLocalStorage) {
     const duplicate = checkForDuplicateStorageItem(currentLocalStorage, values);
     if (duplicate) {
+      // index 1 is the value of if it is already added to the shopping list
+      values.push(true);
+      values.push(duplicate[1]);
       updateDuplicateStorageItem(duplicate, values);
     } else {
       currentLocalStorage.push(new PantryItem(...values));
@@ -171,7 +218,9 @@ function formCb(event) {
     }
   } else {
     // no local storage yet so set it up
-    this.push(new PantryItem(...values)); // `this` refers to the bound `pantryObjArray` array
+    const newObj = new PantryItem(...values);
+    newObj.inPantry = true;
+    this.push(newObj); // `this` refers to the bound `pantryObjArray` array
 
     setLocalStorage("pantry", this);
   }
