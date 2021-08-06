@@ -35,7 +35,6 @@ It's a way to save from a food perspective and a financial perspective. It promo
 
 ### Stretch
 **What stretch goals are you going to aim for?**
-    - Pantry page JS: click/tap item once to reduce quantity by one
     - Shopping List page
 
 ***
