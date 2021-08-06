@@ -106,6 +106,7 @@ function updateDuplicateStorageItem(quantityBefore, array) {
   // add the new item to local storage with the updated quantity
   const newObj = new PantryItem(...array);
   newObj.shoppingList = true;
+  newObj.inPantry = true;
 
   updatedStorage.push(newObj); // push a new PantryItem with the quanitities added together
 
@@ -124,6 +125,7 @@ function addToShoppingList(event) {
   // add the new item to local storage with the updated quantity
   const newObj = new PantryItem(...rowValues);
   newObj.shoppingList = true;
+  newObj.inPantry = true;
   updatedStorage.push(newObj); // push a new PantryItem with the quanitities added together
 
   setLocalStorage("pantry", updatedStorage);
