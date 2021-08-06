@@ -153,7 +153,7 @@ function renderTableRow(values) {
       const thElem = makeElement("th", trElem);
       thElem.appendChild(renderTableButton("Delete", "button", deleteItem));
       thElem.appendChild(
-        renderTableButton("Add to Shopping List", "button", addToShoppingList)
+        renderTableButton("+ List", "button", addToShoppingList)
       );
 
       for (const value of array) {
